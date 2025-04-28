@@ -135,32 +135,47 @@
                 justify-content: space-between;
                 max-width: 1200px;
                 margin: 0 auto;
-                flex-direction: row-reverse;
-            }
-
-            .feedback-info {
-                flex: 0 0 40%;
-                display: flex;
                 flex-direction: column;
             }
 
+            .feedback-info {
+                flex: 0 0 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 30px;
+            }
+
+            .feedback-item {
+                background-color: #fff;
+                padding: 25px 25px 25px 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                text-align: left;
+                margin-bottom: 20px;
+                transition: transform 0.3s ease;
+                width: 30%;
+                position: relative;
+                overflow: hidden;
+            }
+
             .feedback-form {
-                flex: 0 0 55%;
+                flex: 0 0 100%;
                 background-color: var(--light-bg);
                 padding: 30px;
                 border-radius: 10px;
                 box-shadow: var(--box-shadow);
+                margin: 0 auto;
+                max-width: 800px;
             }
 
             @media (max-width: 768px) {
-                .feedback-container {
+                .feedback-info {
                     flex-direction: column;
                 }
-
-                .feedback-info,
-                .feedback-form {
-                    flex: 0 0 100%;
-                    margin-bottom: 20px;
+                
+                .feedback-item {
+                    width: 100%;
                 }
             }
         </style>
@@ -218,54 +233,107 @@
                                 improvement purposes.</p>
                         </div>
                     </div>
+                    
                     <div class="feedback-form">
                         <form id="feedbackForm" action="https://formsubmit.co/test1882002@gmail.com" method="POST">
+                            
                             <div class="form-group">
-                                <label>Who are you?</label>
+                                <label>1. How would you rate the pre arrival information provided by Williams Shipping?</label>
+                                <div class="rating-stars">
+                                    <input type="radio" id="q1star5" name="preArrivalInfo" value="5. Excellent" required>
+                                    <label for="q1star5" title="5. Excellent"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q1star4" name="preArrivalInfo" value="4. Good">
+                                    <label for="q1star4" title="4. Good"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q1star3" name="preArrivalInfo" value="3. Satisfactory">
+                                    <label for="q1star3" title="3. Satisfactory"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q1star2" name="preArrivalInfo" value="2. Average">
+                                    <label for="q1star2" title="2. Average"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q1star1" name="preArrivalInfo" value="1. Must improve">
+                                    <label for="q1star1" title="1. Must improve"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>2. Was information such as status and expected progress timely and accurate provided for?</label>
+                                <div class="rating-stars">
+                                    <input type="radio" id="q2star5" name="timelyInfo" value="5. Excellent" required>
+                                    <label for="q2star5" title="5. Excellent"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q2star4" name="timelyInfo" value="4. Good">
+                                    <label for="q2star4" title="4. Good"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q2star3" name="timelyInfo" value="3. Satisfactory">
+                                    <label for="q2star3" title="3. Satisfactory"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q2star2" name="timelyInfo" value="2. Average">
+                                    <label for="q2star2" title="2. Average"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q2star1" name="timelyInfo" value="1. Must improve">
+                                    <label for="q2star1" title="1. Must improve"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>3. How would you rate the availability of the Williams Shipping staff?</label>
+                                <div class="rating-stars">
+                                    <input type="radio" id="q3star5" name="staffAvailability" value="5. Excellent" required>
+                                    <label for="q3star5" title="5. Excellent"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q3star4" name="staffAvailability" value="4. Good">
+                                    <label for="q3star4" title="4. Good"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q3star3" name="staffAvailability" value="3. Satisfactory">
+                                    <label for="q3star3" title="3. Satisfactory"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q3star2" name="staffAvailability" value="2. Average">
+                                    <label for="q3star2" title="2. Average"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q3star1" name="staffAvailability" value="1. Must improve">
+                                    <label for="q3star1" title="1. Must improve"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>4. Overall, how would you rate the services provided by Williams Shipping?</label>
+                                <div class="rating-stars">
+                                    <input type="radio" id="q4star5" name="overallRating" value="5. Excellent" required>
+                                    <label for="q4star5" title="5. Excellent"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q4star4" name="overallRating" value="4. Good">
+                                    <label for="q4star4" title="4. Good"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q4star3" name="overallRating" value="3. Satisfactory">
+                                    <label for="q4star3" title="3. Satisfactory"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q4star2" name="overallRating" value="2. Average">
+                                    <label for="q4star2" title="2. Average"><i class="fas fa-star"></i></label>
+
+                                    <input type="radio" id="q4star1" name="overallRating" value="1. Must improve">
+                                    <label for="q4star1" title="1. Must improve"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>5. Would you recommend Williams Shipping to others?</label>
                                 <div class="radio-group">
                                     <div class="radio-option">
-                                        <input type="radio" id="owner" name="userType" value="Owner" required>
-                                        <label for="owner">Owner</label>
+                                        <input type="radio" id="recommendYes" name="recommend" value="Yes" required>
+                                        <label for="recommendYes">Yes</label>
                                     </div>
                                     <div class="radio-option">
-                                        <input type="radio" id="captain" name="userType" value="Captain">
-                                        <label for="captain">Captain</label>
-                                    </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="charter" name="userType" value="Charter">
-                                        <label for="charter">Charter</label>
+                                        <input type="radio" id="recommendNo" name="recommend" value="No">
+                                        <label for="recommendNo">No</label>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="vesselName">Vessel Name</label>
-                                <input type="text" id="vesselName" name="vesselName" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Rate Our Service</label>
-                                <div class="rating-stars">
-                                    <input type="radio" id="star5" name="rating" value="5" required>
-                                    <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
-
-                                    <input type="radio" id="star4" name="rating" value="4">
-                                    <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
-
-                                    <input type="radio" id="star3" name="rating" value="3">
-                                    <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
-
-                                    <input type="radio" id="star2" name="rating" value="2">
-                                    <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
-
-                                    <input type="radio" id="star1" name="rating" value="1">
-                                    <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="comments">Comments</label>
-                                <textarea id="comments" name="comments" rows="5" required
+                                <label for="comments">6. Comments</label>
+                                <textarea id="comments" name="comments" rows="5" 
                                     placeholder="Please share your experience with our services"></textarea>
                             </div>
 
