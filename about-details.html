@@ -328,6 +328,48 @@
             opacity: 0.9;
         }
         
+        /* Button styles */
+        .btn-light {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid white;
+        }
+        
+        .btn-light:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        /* Header styles for about page */
+        header {
+            transition: background-color 0.3s ease;
+        }
+        
+        header .logo h1,
+        header nav ul li a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header.scrolled .logo h1,
+        header.scrolled nav ul li a {
+            color: var(--text-color);
+        }
+        
+        header .hamburger .bar {
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+        
+        header.scrolled .hamburger .bar {
+            background-color: var(--text-color);
+        }
+        
         @media (max-width: 768px) {
             .about-hero-content h1 {
                 font-size: 2.5rem;
@@ -538,63 +580,22 @@
                     </ul>
                 </div>
                 
-                <!-- Certification -->
-                <div class="about-section fade-in">
-                    <h2>Quality Certification</h2>
-                    <div class="certification-section">
-                        <div class="certification-logo">
-                            <img src="images/iso-logo.png" alt="ISO Certification">
-                        </div>
-                        <div class="certification-text">
-                            <p>Williams Shipping quality management system is ISO 9001 / 2015 certified by DNV-GL</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Stats Section -->
-            <div class="about-stats">
-                <div class="stat-item fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-ship"></i>
-                    </div>
-                    <span class="stat-number">1000+</span>
-                    <span class="stat-text">Vessels Served</span>
-                </div>
-                <div class="stat-item fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <span class="stat-number">150+</span>
-                    <span class="stat-text">Employees</span>
-                </div>
-                <div class="stat-item fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <span class="stat-number">8+</span>
-                    <span class="stat-text">Port Locations</span>
-                </div>
-                <div class="stat-item fade-in">
-                    <div class="stat-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <span class="stat-number">500+</span>
-                    <span class="stat-text">Happy Clients</span>
-                </div>
-            </div>
+             
+                
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="about-cta">
+    <section class="services-cta">
         <div class="container">
-            <h2>Ready to Experience Our Services?</h2>
-            <p>Contact us today to learn more about how Williams Shipping can provide comprehensive shipping and logistics solutions for your business.</p>
-            <a href="index.html#contact" class="btn btn-light">Contact Us</a>
+            <h2>Ready to Experience Our Premium Shipping Services?</h2>
+            <p>Contact our team today to discuss how Williams Shipping can support your maritime operations with our comprehensive service solutions.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
+                <a href="feedback.html" class="btn btn-primary">Share Feedback</a>
+            </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -659,6 +660,22 @@
         
         // Check visibility on scroll
         window.addEventListener('scroll', checkVisibility);
+        
+        // Header scroll effect
+        function handleHeaderScroll() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+        
+        // Check header on load
+        handleHeaderScroll();
+        
+        // Check header on scroll
+        window.addEventListener('scroll', handleHeaderScroll);
     </script>
 </body>
 </html>

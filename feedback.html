@@ -1,237 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Feedback - Williams Shipping</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet">
-        <style>
-            /* Additional styles for the feedback form */
-            .feedback-form {
-                background-color: var(--light-bg);
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: var(--box-shadow);
-                max-width: 800px;
-                margin: 0 auto;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Williams Shipping</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Feedback Page Specific Styles */
+        .feedback-hero {
+            background: linear-gradient(rgba(0, 56, 107, 0.85), rgba(0, 56, 107, 0.85)), url('images/feedback-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .feedback-hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .feedback-hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease 0.3s;
+            animation-fill-mode: both;
+        }
 
+        .feedback-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .feedback-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: -40px auto 50px;
+        }
+
+        .feedback-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feedback-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .feedback-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-item i {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 86, 179, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feedback-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .feedback-item p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .feedback-form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        .feedback-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+            outline: none;
+        }
+
+        .radio-group {
+            display: flex;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            margin-right: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 5px;
+            width: auto;
+        }
+
+        .rating-stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .rating-stars input {
+            display: none;
+        }
+
+        .rating-stars label {
+            cursor: pointer;
+            font-size: 30px;
+            color: #ddd;
+            padding: 5px;
+        }
+
+        .rating-stars label:hover,
+        .rating-stars label:hover~label,
+        .rating-stars input:checked~label {
+            color: var(--accent-color);
+        }
+
+        .form-group.success-message {
+            background-color: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .feedback-cta {
+            background: linear-gradient(rgba(0, 56, 107, 0.9), rgba(0, 56, 107, 0.9)), url('images/cta-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .feedback-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .feedback-cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        @media (max-width: 992px) {
+            .feedback-hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .feedback-hero-content p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
             .feedback-info {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-bottom: 40px;
-                max-width: 800px;
-                margin: 0 auto 40px auto;
+                grid-template-columns: 1fr;
             }
-
-            .feedback-item {
-                background-color: #fff;
-                padding: 25px 25px 25px 30px;
-                border-radius: 10px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-                text-align: left;
-                margin-bottom: 20px;
-                transition: transform 0.3s ease;
-                width: 100%;
-                position: relative;
-                overflow: hidden;
+            
+            .feedback-form-container {
+                padding: 30px 20px;
             }
-
-            .feedback-item::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 4px;
-                background-color: var(--primary-color);
+            
+            .feedback-hero-content h1 {
+                font-size: 32px;
             }
-
-            .feedback-item i {
+            
+            .feedback-cta h2 {
                 font-size: 28px;
-                color: var(--primary-color);
-                margin-bottom: 15px;
             }
+        }
 
-            .feedback-item h3 {
-                font-size: 20px;
-                margin-bottom: 10px;
-                color: #333;
-                font-weight: 600;
-            }
+        /* Header styles for feedback page */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent;
+            box-shadow: none;
+            transition: var(--transition);
+        }
 
-            .feedback-item p {
-                font-size: 14px;
-                color: #666;
-                line-height: 1.5;
-            }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        header .logo h1,
+        header nav ul li a {
+            color: #fff;
+        }
+        
+        header .logo span {
+            color: var(--accent-color);
+        }
+        
+        header.scrolled {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header.scrolled .logo h1,
+        header.scrolled nav ul li a {
+            color: var(--text-color);
+        }
 
-            .feedback-item:hover {
-                transform: translateY(-5px);
-            }
+        /* Make hamburger menu bars white */
+        .hamburger .bar {
+            background-color: #fff;
+            transition: var(--transition);
+        }
+        
+        header.scrolled .hamburger .bar {
+            background-color: var(--text-color);
+        }
+    </style>
+</head>
 
-            @media (max-width: 768px) {
-                .feedback-item {
-                    flex: 0 0 100%;
-                }
-            }
-
-            .radio-group {
-                display: flex;
-                margin-bottom: 20px;
-                flex-wrap: wrap;
-            }
-
-            .radio-option {
-                margin-right: 20px;
-                margin-bottom: 10px;
-                display: flex;
-                align-items: center;
-            }
-
-            .radio-option input {
-                margin-right: 5px;
-            }
-
-            .rating-stars {
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: flex-end;
-            }
-
-            .rating-stars input {
-                display: none;
-            }
-
-            .rating-stars label {
-                cursor: pointer;
-                font-size: 30px;
-                color: #ddd;
-                padding: 5px;
-            }
-
-            .rating-stars label:hover,
-            .rating-stars label:hover~label,
-            .rating-stars input:checked~label {
-                color: var(--accent-color);
-            }
-
-            .form-group.success-message {
-                background-color: var(--success-color);
-                color: white;
-                padding: 15px;
-                border-radius: 5px;
-                text-align: center;
-                display: none;
-            }
-
-            .feedback-container {
-                display: flex;
-                justify-content: space-between;
-                max-width: 1200px;
-                margin: 0 auto;
-                flex-direction: column;
-            }
-
-            .feedback-info {
-                flex: 0 0 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                margin-bottom: 30px;
-            }
-
-            .feedback-item {
-                background-color: #fff;
-                padding: 25px 25px 25px 30px;
-                border-radius: 10px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-                text-align: left;
-                margin-bottom: 20px;
-                transition: transform 0.3s ease;
-                width: 30%;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .feedback-form {
-                flex: 0 0 100%;
-                background-color: var(--light-bg);
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: var(--box-shadow);
-                margin: 0 auto;
-                max-width: 800px;
-            }
-
-            @media (max-width: 768px) {
-                .feedback-info {
-                    flex-direction: column;
-                }
-                
-                .feedback-item {
-                    width: 100%;
-                }
-            }
-        </style>
-    </head>
-
-    <body>
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <h1>Williams <span>Shipping</span></h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#branches">Location</a></li>
-                        <li><a href="index.html#contact">Contact Us</a></li>
-                        <li><a href="feedback.html" class="active">Feedback</a></li>
-                    </ul>
-                    <div class="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </nav>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Williams <span>Shipping</span></h1>
             </div>
-        </header>
-
-        <!-- Feedback Section -->
-        <section class="feedback" style="margin-top: 80px;">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Customer Feedback</h2>
-                    <p>We Value Your Opinion</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#branches">Location</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                    <li><a href="feedback.html" class="active">Feedback</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
-                <div class="feedback-container">
-                    <div class="feedback-info">
-                        <div class="feedback-item">
-                            <i class="fas fa-comments"></i>
-                            <h3>Your Opinion Matters</h3>
-                            <p>We value your feedback as it helps us continuously improve our services to meet your
-                                shipping needs.</p>
-                        </div>
-                        <div class="feedback-item">
-                            <i class="fas fa-chart-line"></i>
-                            <h3>Service Improvements</h3>
-                            <p>Your feedback directly contributes to enhancing our service quality and operational
-                                efficiency.</p>
-                        </div>
-                        <div class="feedback-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>Confidentiality</h3>
-                            <p>All feedback is treated with strict confidentiality and is only used for service
-                                improvement purposes.</p>
-                        </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Feedback Hero Section -->
+    <section class="feedback-hero">
+        <div class="container">
+            <div class="feedback-hero-content">
+                <h1>Customer Feedback</h1>
+                <p>Your opinion matters to us. Help us improve our services by sharing your experience with Williams Shipping.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback">
+        <div class="container">
+            <div class="feedback-container">
+                <div class="feedback-info">
+                    <div class="feedback-item">
+                        <i class="fas fa-comments"></i>
+                        <h3>Your Opinion Matters</h3>
+                        <p>We value your feedback as it helps us continuously improve our services to meet your shipping needs.</p>
+                    </div>
+                    <div class="feedback-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Service Improvements</h3>
+                        <p>Your feedback directly contributes to enhancing our service quality and operational efficiency.</p>
+                    </div>
+                    <div class="feedback-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Confidentiality</h3>
+                        <p>All feedback is treated with strict confidentiality and is only used for service improvement purposes.</p>
+                    </div>
+                </div>
+                
+                <div class="feedback-form-container">
+                    <div class="section-header">
+                        <h2>Share Your Experience</h2>
+                        <p>We appreciate your time in providing feedback</p>
                     </div>
                     
                     <div class="feedback-form">
@@ -339,7 +468,7 @@
 
                             <div class="form-group">
                                 <label for="email">Your Email (optional)</label>
-                                <input type="email" id="email" name="email">
+                                <input type="email" id="email" name="email" placeholder="your@email.com">
                             </div>
 
                             <input type="hidden" name="form-type" value="feedback">
@@ -361,62 +490,74 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-logo">
-                        <h2>Williams <span>Shipping</span></h2>
-                        <p>Your Trusted Shipping Partner</p>
-                    </div>
-                    <div class="footer-links">
-                        <h3>Main menu</h3>
-                        <ul>
-                            <li><a href="index.html#home">Home</a></li>
-                            <li><a href="index.html#about">About Us</a></li>
-                            <li><a href="index.html#services">Services</a></li>
-                            <li><a href="index.html#branches">Branches</a></li>
-                            <li><a href="index.html#contact">Contact Us</a></li>
-                            <li><a href="feedback.html">Feedback</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-services">
-                        <h3>Our Services</h3>
-                        <ul>
-                            <li><a href="services.html#port-call">Port Call</a></li>
-                            <li><a href="services.html#crew-change">Crew Change</a></li>
-                            <li><a href="services.html#ctm">CTM</a></li>
-                            <li><a href="services.html#spare-parts">Spare Parts</a></li>
-                            <li><a href="services.html#customs-clearance">Customs Clearance</a></li>
-                            <li><a href="services.html#chartering">Chartering</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-social">
-                        <h3>Connect With Us</h3>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="newsletter">
-                            <h3>Subscribe to Our Newsletter</h3>
-                            <form id="newsletterForm">
-                                <input type="email" placeholder="Your Email" required>
-                                <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                            </form>
-                        </div>
-                    </div>
+    <!-- Feedback CTA Section -->
+    <section class="feedback-cta">
+        <div class="container">
+            <h2>Your Feedback Shapes Our Future</h2>
+            <p>Thank you for taking the time to share your experience with Williams Shipping. Your insights help us deliver better service to all our customers.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Williams <span>Shipping</span></h2>
+                    <p>Your Trusted Shipping Partner</p>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2023 Williams Shipping. All Rights Reserved.</p>
+                <div class="footer-links">
+                    <h3>Main menu</h3>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#branches">Branches</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html#port-call">Port Call</a></li>
+                        <li><a href="services.html#crew-change">Crew Change</a></li>
+                        <li><a href="services.html#ctm">CTM</a></li>
+                        <li><a href="services.html#spare-parts">Spare Parts</a></li>
+                        <li><a href="services.html#customs-clearance">Customs Clearance</a></li>
+                        <li><a href="services.html#chartering">Chartering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h3>Subscribe to Our Newsletter</h3>
+                        <form id="newsletterForm">
+                            <input type="email" placeholder="Your Email" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </footer>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Williams Shipping. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-        <script src="js/script.js"></script>
-        <script src="js/feedback.js"></script>
-    </body>
+    <script src="js/script.js"></script>
+    <script src="js/feedback.js"></script>
+</body>
 
 </html>
