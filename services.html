@@ -1,598 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Williams Shipping</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Services Page Specific Styles */
-        .services-hero {
-            background: linear-gradient(rgba(0, 56, 107, 0.85), rgba(0, 56, 107, 0.85)), url('images/services-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .services-hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            animation: fadeInDown 1s ease;
-        }
-        
-        .services-hero-content p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            animation: fadeInUp 1s ease 0.3s;
-            animation-fill-mode: both;
-        }
-        
-        .services-nav {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            margin-top: -40px;
-            position: relative;
-            z-index: 10;
-            margin-bottom: 30px;
-        }
-        
-        .services-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 0;
-        }
-        
-        .services-nav ul li {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .services-nav ul li a {
-            display: block;
-            padding: 20px 25px;
-            font-weight: 600;
-            color: #333;
-            position: relative;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .services-nav ul li a:hover {
-            color: #fff;
-            background-color: var(--primary-color);
-        }
-        
-        .services-nav ul li a.active {
-            color: var(--primary-color);
-        }
-        
-        .services-nav ul li a.active:hover {
-            color: #fff;
-        }
-        
-        .services-nav ul li a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-        
-        .service-section {
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .service-section:last-child {
-            border-bottom: none;
-        }
-        
-        .service-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .service-image {
-            flex: 0 0 40%;
-            max-width: 40%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-image img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
-        
-        .service-container:hover .service-image img {
-            transform: scale(1.05);
-        }
-        
-        .service-content {
-            flex: 0 0 55%;
-            max-width: 55%;
-        }
-        
-        .service-content h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .service-content p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 25px;
-        }
-        
-        .service-content .btn {
-            padding: 12px 25px;
-        }
-        
-        .service-section h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 15px;
-            color: #333;
-        }
-        
-        .service-section h3::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 25px;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
-        
-        .features-grid, .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .feature-item, .benefit-item {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .feature-item:hover, .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon, .benefit-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(0, 86, 179, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .feature-icon i, .benefit-icon i {
-            font-size: 24px;
-            color: var(--primary-color);
-        }
-        
-        .feature-item h4, .benefit-item h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        
-        .feature-item p, .benefit-item p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .service-cta {
-            margin-top: 40px;
-            text-align: center;
-        }
-        
-        .service-cta .btn {
-            padding: 15px 30px;
-            font-size: 16px;
-        }
-        
-        .services-cta {
-            background: linear-gradient(rgba(0, 56, 107, 0.9), rgba(0, 56, 107, 0.9)), url('images/cta-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .services-cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        
-        .services-cta p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .service-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-        
-        .service-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-card-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .service-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .service-card:hover .service-card-image img {
-            transform: scale(1.1);
-        }
-        
-        .service-card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .service-card-content h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        .service-card-content p {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-        
-        .service-card-content .btn {
-            align-self: flex-start;
-            padding: 10px 20px;
-            font-size: 14px;
-        }
-        
-        @media (min-width: 992px) {
-            .service-detail-image {
-                flex: 0 0 45%;
-                max-width: 45%;
-                margin-bottom: 0;
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Our Services - Williams Shipping</title>
+        <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            media="print" onload="this.media='all'">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet" media="print" onload="this.media='all'" fetchpriority="low">
+        <!-- Preload critical above-the-fold styles -->
+        <link rel="preload" href="css/style.css" as="style" fetchpriority="high">
+        <noscript>
+            <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+                rel="stylesheet">
+        </noscript>
+        <style>
+            /* Critical font loading */
+            @font-face {
+                font-family: 'Poppins';
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                /* Ensure text remains visible during font loading */
             }
-            
-            .service-detail-text {
-                flex: 0 0 50%;
-                max-width: 50%;
+
+            /* Ensure content is visible during load */
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             }
-            
-            .service-detail:nth-child(odd) .service-detail-content {
-                flex-direction: row-reverse;
+
+            body.fonts-loaded {
+                font-family: 'Poppins', sans-serif;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .services-nav ul li a {
-                padding: 15px;
-                font-size: 14px;
+
+            /* Lazy image loading styles */
+            .lazy-image {
+                opacity: 0;
+                transition: opacity 0.3s;
             }
-            
-            .service-detail-text h2 {
-                font-size: 28px;
+
+            .lazy-image.loaded {
+                opacity: 1;
             }
-            
-            .service-section h3 {
-                font-size: 22px;
+
+            /* Services Page Specific Styles */
+            .services-hero {
+                background: linear-gradient(rgba(0, 56, 107, 0.85), rgba(0, 56, 107, 0.85)), url('images/services-bg.jpg');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                padding: 120px 0 80px;
+                text-align: center;
+                position: relative;
             }
-            
-            .features-grid, .benefits-grid {
-                grid-template-columns: 1fr;
+
+            .services-hero-content h1 {
+                font-size: 48px;
+                margin-bottom: 20px;
+                animation: fadeInDown 1s ease;
             }
-            
-            .service-cards {
-                grid-template-columns: 1fr;
+
+            .services-hero-content p {
+                font-size: 20px;
+                max-width: 700px;
+                margin: 0 auto 30px;
+                animation: fadeInUp 1s ease 0.3s;
+                animation-fill-mode: both;
             }
-            
-            .service-container {
-                flex-direction: column;
-            }
-            
-            .service-image, .service-content {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-            
-            .service-image {
+
+            .services-nav {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+                margin-top: -40px;
+                position: relative;
+                z-index: 10;
                 margin-bottom: 30px;
             }
-        }
-        
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: transparent;
-            box-shadow: none;
-            transition: var(--transition);
-        }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-        
-        header .logo h1,
-        header nav ul li a {
-            color: #fff;
-        }
-        
-        header .logo span {
-            color: var(--accent-color);
-        }
-        
-        header.scrolled {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        header.scrolled .logo h1,
-        header.scrolled nav ul li a {
-            color: var(--text-color);
-        }
-        
-        header.scrolled nav ul li a.active {
-            color: var(--primary-color);
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>Williams <span>Shipping</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="services.html" class="active">Services</a></li>
-                    <li><a href="index.html#branches">Location</a></li>
-                    <li><a href="index.html#contact">Contact Us</a></li>
-                    <li><a href="feedback.html">Feedback</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
+            .services-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0;
+            }
 
-    <!-- Services Hero Section -->
-    <section class="services-hero">
-        <div class="container">
-            <div class="services-hero-content">
-                <h1>Our Services</h1>
-                <p>Comprehensive Shipping Solutions for All Your Needs</p>
-            </div>
-        </div>
-    </section>
+            .services-nav ul li {
+                margin: 0;
+                padding: 0;
+            }
 
-    <!-- Services Overview Section -->
-    <section class="services-overview">
-        <div class="container">
-            <div class="services-nav">
-                <ul>
-                    <li><a href="#port-call" class="active">Port Call</a></li>
-                    <li><a href="#crew-change">Crew Change</a></li>
-                    <li><a href="#ctm">CTM</a></li>
-                    <li><a href="#spare-parts">Spare Parts</a></li>
-                    <li><a href="#customs-clearance">Customs Clearance</a></li>
-                    <li><a href="#chartering">Chartering</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+            .services-nav ul li a {
+                display: block;
+                padding: 20px 25px;
+                font-weight: 600;
+                color: #333;
+                position: relative;
+                transition: all 0.3s ease;
+                text-align: center;
+            }
 
-    <!-- Port Call Service Section -->
-    <section id="port-call" class="service-section">
-        <div class="container">
-            <div class="service-container">
-                <div class="service-image">
-                    <img src="images/services/port-call.jpeg" alt="Port Call Services">
-                </div>
-                <div class="service-content">
-                    <h2>Port Call Services</h2>
-                    <p>Williams Shipping provides comprehensive port agency services for vessels calling at Egyptian ports. Our experienced team ensures smooth operations from arrival to departure, handling all necessary documentation and coordination with port authorities.</p>
-                    <p>We manage all aspects of your vessel's port call, including customs clearance, immigration procedures, berth arrangements, and coordination with terminal operators. Our local expertise and established relationships with port officials help minimize delays and optimize your vessel's time in port.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us for Port Call Services</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            .services-nav ul li a:hover {
+                color: #fff;
+                background-color: var(--primary-color);
+            }
 
-    <!-- Crew Change Service Section -->
-    <section id="crew-change" class="service-section">
-        <div class="container">
-            <div class="service-container">
-                <div class="service-content">
-                    <h2>Crew Change Services</h2>
-                    <p>Our crew change services ensure smooth and efficient transitions for maritime personnel in Egyptian ports. We handle all logistics, documentation, and transportation needs to minimize vessel downtime and ensure crew comfort.</p>
-                    <p>From visa arrangements and immigration clearance to airport transfers and hotel accommodations, we manage every detail of your crew changes. Our 24/7 support team is always available to address any issues that may arise, ensuring your crew transitions proceed without complications.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us for Crew Change Services</a>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/crew-change.webp" alt="Crew Change Services">
-                </div>
-            </div>
-        </div>
-    </section>
+            .services-nav ul li a.active {
+                color: var(--primary-color);
+            }
 
-    <!-- CTM Service Section -->
-    <section id="ctm" class="service-section">
-        <div class="container">
-            <div class="service-container">
-                <div class="service-image">
-                    <img src="images/services/ctm.png" alt="Container Terminal Management">
-                </div>
-                <div class="service-content">
-                    <h2>Cash to Master </h2>
-                    <p>Our CTM service ensures that vessels receive the necessary cash funds promptly and safely, helping the Master handle operational expenses such as crew wages, port fees, and other urgent needs. We coordinate closely with vessel agents, port authorities, and trusted financial partners to guarantee fast, discreet, and fully compliant transactions.</p>
-                    <p>Our experienced team manages the process end-to-end, ensuring the cash is delivered accurately, securely, and on time, reducing risks and allowing vessel operations to proceed smoothly without unnecessary delays.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us for CTM Services</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            .services-nav ul li a.active:hover {
+                color: #fff;
+            }
 
-    <!-- Spare Parts Service Section -->
-    <section id="spare-parts" class="service-section">
-        <div class="container">
-            <div class="service-container">
-                <div class="service-content">
-                    <h2>Spare Parts Services</h2>
-                    <p>Williams Shipping provides reliable sourcing and delivery of marine spare parts and equipment for vessels of all types. We understand that minimizing downtime is critical, which is why we offer fast and efficient spare parts solutions.</p>
-                    <p>Our extensive network of suppliers enables us to source high-quality parts at competitive prices. We handle all aspects of the process, from procurement and quality verification to customs clearance and delivery directly to your vessel, ensuring you receive the right parts when and where you need them.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us for Spare Parts Services</a>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/spare.jpg" alt="Spare Parts Services">
-                </div>
-            </div>
-        </div>
-    </section>
+            .services-nav ul li a.active::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40px;
+                height: 3px;
+                background-color: var(--primary-color);
+            }
 
-    <!-- Customs Clearance Service Section -->
-    <section id="customs-clearance" class="service-section">
-        <div class="container">
-            <div class="service-container">
-                <div class="service-image">
-                    <img src="images/services/customs.jpg" alt="Customs Clearance Services">
-                </div>
-                <div class="service-content">
-                    <h2>Customs Clearance Services</h2>
-                    <p>Our customs clearance services ensure smooth and compliant import and export operations through Egyptian ports. Our specialists have in-depth knowledge of local regulations and procedures to expedite the clearance process while maintaining full compliance.</p>
-                    <p>We prepare and submit all required documentation, coordinate inspections, calculate and pay duties and taxes, and handle any regulatory issues that may arise. Our efficient approach minimizes delays and prevents costly penalties, allowing your cargo to move through customs with minimal disruption.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us for Customs Clearance Services</a>
-                </div>
-            </div>
-        </div>
-    </section>
+            .service-section {
+                padding: 60px 0;
+                border-bottom: 1px solid #eee;
+            }
 
-    <!-- Chartering Service Section -->
-    <section id="chartering" class="service-section">
-        <div class="container">
-            <div class="service-container">
-                <div class="service-content">
-                    <h2>Chartering Services</h2>
-                    <p>Williams Shipping offers professional chartering services for vessels and cargo transportation. We connect vessel owners with charterers and manage all aspects of the chartering process to ensure optimal vessel utilization and efficient cargo delivery.</p>
-                    <p>Our chartering specialists have extensive market knowledge and industry connections to secure the best terms for both vessel owners and charterers. We handle contract negotiations, documentation, operational coordination, and performance monitoring to ensure successful charter arrangements that meet all parties' requirements.</p>
-                    <a href="index.html#contact" class="btn btn-primary">Contact Us for Chartering Services</a>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/chartering.jpg" alt="Chartering Services">
-                </div>
-            </div>
-        </div>
-    </section>
+            .service-section:last-child {
+                border-bottom: none;
+            }
 
-    <!-- CTA Section -->
-    <section class="services-cta">
-        <div class="container">
-            <h2>Ready to Experience Our Premium Shipping Services?</h2>
-            <p>Contact our team today to discuss how Williams Shipping can support your maritime operations with our comprehensive service solutions.</p>
-            <div class="cta-buttons">
-                <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
-                <a href="feedback.html" class="btn btn-primary">Share Feedback</a>
-            </div>
-        </div>
-    </section>
+            .service-container {
+                display: flex;
+                align-items: center;
+                gap: 50px;
+            }
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Williams <span>Shipping</span></h2>
-                    <p>Your Trusted Shipping Partner</p>
+            .service-image {
+                flex: 0 0 40%;
+                max-width: 40%;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .service-image img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.5s ease;
+            }
+
+            .service-container:hover .service-image img {
+                transform: scale(1.05);
+            }
+
+            .service-content {
+                flex: 0 0 55%;
+                max-width: 55%;
+            }
+
+            .service-content h2 {
+                font-size: 32px;
+                margin-bottom: 20px;
+                color: var(--primary-color);
+            }
+
+            .service-content p {
+                font-size: 16px;
+                line-height: 1.8;
+                color: #555;
+                margin-bottom: 25px;
+            }
+
+            .service-content .btn {
+                padding: 12px 25px;
+            }
+
+            .service-section h3 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                position: relative;
+                padding-left: 15px;
+                color: #333;
+            }
+
+            .service-section h3::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 5px;
+                height: 25px;
+                background-color: var(--primary-color);
+                border-radius: 3px;
+            }
+
+            .features-grid,
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .feature-item,
+            .benefit-item {
+                background-color: #fff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .feature-item:hover,
+            .benefit-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .feature-icon,
+            .benefit-icon {
+                width: 60px;
+                height: 60px;
+                background-color: rgba(0, 86, 179, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .feature-icon i,
+            .benefit-icon i {
+                font-size: 24px;
+                color: var(--primary-color);
+            }
+
+            .feature-item h4,
+            .benefit-item h4 {
+                font-size: 18px;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .feature-item p,
+            .benefit-item p {
+                font-size: 14px;
+                color: #666;
+                line-height: 1.6;
+            }
+
+            .service-cta {
+                margin-top: 40px;
+                text-align: center;
+            }
+
+            .service-cta .btn {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+
+            .services-cta {
+                background: linear-gradient(rgba(0, 56, 107, 0.9), rgba(0, 56, 107, 0.9)), url('images/cta-bg.jpg');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                padding: 80px 0;
+                text-align: center;
+            }
+
+            .services-cta h2 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .services-cta p {
+                font-size: 18px;
+                max-width: 700px;
+                margin: 0 auto 30px;
+            }
+
+            .service-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+                margin: 50px 0;
+            }
+
+            .service-card {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .service-card-image {
+                height: 200px;
+                overflow: hidden;
+            }
+
+            .service-card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .service-card:hover .service-card-image img {
+                transform: scale(1.1);
+            }
+
+            .service-card-content {
+                padding: 25px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .service-card-content h3 {
+                font-size: 22px;
+                margin-bottom: 15px;
+                color: var(--primary-color);
+            }
+
+            .service-card-content p {
+                font-size: 15px;
+                color: #666;
+                margin-bottom: 20px;
+                line-height: 1.6;
+                flex-grow: 1;
+            }
+
+            .service-card-content .btn {
+                align-self: flex-start;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            @media (min-width: 992px) {
+                .service-detail-image {
+                    flex: 0 0 45%;
+                    max-width: 45%;
+                    margin-bottom: 0;
+                }
+
+                .service-detail-text {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                }
+
+                .service-detail:nth-child(odd) .service-detail-content {
+                    flex-direction: row-reverse;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .services-nav ul li a {
+                    padding: 15px;
+                    font-size: 14px;
+                }
+
+                .service-detail-text h2 {
+                    font-size: 28px;
+                }
+
+                .service-section h3 {
+                    font-size: 22px;
+                }
+
+                .features-grid,
+                .benefits-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .service-cards {
+                    grid-template-columns: 1fr;
+                }
+
+                .service-container {
+                    flex-direction: column;
+                }
+
+                .service-image,
+                .service-content {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+
+                .service-image {
+                    margin-bottom: 30px;
+                }
+            }
+
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                background-color: transparent;
+                box-shadow: none;
+                transition: var(--transition);
+            }
+
+            header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 80px;
+            }
+
+            header .logo h1,
+            header nav ul li a {
+                color: #fff;
+            }
+
+            header .logo span {
+                color: var(--accent-color);
+            }
+
+            header.scrolled {
+                background-color: #fff;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            header.scrolled .logo h1,
+            header.scrolled nav ul li a {
+                color: var(--text-color);
+            }
+
+            header.scrolled nav ul li a.active {
+                color: var(--primary-color);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <h1>Williams <span>Shipping</span></h1>
                 </div>
-                <div class="footer-links">
-                    <h3>Main menu</h3>
+                <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
                         <li><a href="index.html#branches">Location</a></li>
                         <li><a href="index.html#contact">Contact Us</a></li>
                         <li><a href="feedback.html">Feedback</a></li>
                     </ul>
+                </nav>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
-                <div class="footer-services">
-                    <h3>Our Services</h3>
+            </div>
+        </header>
+
+        <!-- Services Hero Section -->
+        <section class="services-hero">
+            <div class="container">
+                <div class="services-hero-content">
+                    <h1>Our Services</h1>
+                    <p>Comprehensive Shipping Solutions for All Your Needs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section class="services-overview">
+            <div class="container">
+                <div class="services-nav">
                     <ul>
-                        <li><a href="#port-call">Port Call</a></li>
+                        <li><a href="#port-call" class="active">Port Call</a></li>
                         <li><a href="#crew-change">Crew Change</a></li>
                         <li><a href="#ctm">CTM</a></li>
                         <li><a href="#spare-parts">Spare Parts</a></li>
@@ -600,29 +502,256 @@
                         <li><a href="#chartering">Chartering</a></li>
                     </ul>
                 </div>
-                <div class="footer-social">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </section>
+
+        <!-- Port Call Service Section -->
+        <section id="port-call" class="service-section">
+            <div class="container">
+                <div class="service-container">
+                    <div class="service-image">
+                        <img src="images/services/port-call.jpeg" alt="Port Call Services" loading="lazy"
+                            class="lazy-image" fetchpriority="low">
                     </div>
-                    <div class="newsletter">
-                        <h3>Subscribe to Our Newsletter</h3>
-                        <form id="newsletterForm">
-                            <input type="email" placeholder="Your Email" required>
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </form>
+                    <div class="service-content">
+                        <h2>Port Call Services</h2>
+                        <p>Williams Shipping provides comprehensive port agency services for vessels calling at Egyptian
+                            ports. Our experienced team ensures smooth operations from arrival to departure, handling
+                            all necessary documentation and coordination with port authorities.</p>
+                        <p>We manage all aspects of your vessel's port call, including customs clearance, immigration
+                            procedures, berth arrangements, and coordination with terminal operators. Our local
+                            expertise and established relationships with port officials help minimize delays and
+                            optimize your vessel's time in port.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Port Call Services</a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Williams Shipping. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/script.js"></script>
-</body>
+        <!-- Crew Change Service Section -->
+        <section id="crew-change" class="service-section">
+            <div class="container">
+                <div class="service-container">
+                    <div class="service-content">
+                        <h2>Crew Change Services</h2>
+                        <p>Our crew change services ensure smooth and efficient transitions for maritime personnel in
+                            Egyptian ports. We handle all logistics, documentation, and transportation needs to minimize
+                            vessel downtime and ensure crew comfort.</p>
+                        <p>From visa arrangements and immigration clearance to airport transfers and hotel
+                            accommodations, we manage every detail of your crew changes. Our 24/7 support team is always
+                            available to address any issues that may arise, ensuring your crew transitions proceed
+                            without complications.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Crew Change Services</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/services/crew-change.webp" alt="Crew Change Services" loading="lazy"
+                            class="lazy-image" fetchpriority="low">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTM Service Section -->
+        <section id="ctm" class="service-section">
+            <div class="container">
+                <div class="service-container">
+                    <div class="service-image">
+                        <img src="images/services/ctm.png" alt="Container Terminal Management" loading="lazy"
+                            class="lazy-image" fetchpriority="low">
+                    </div>
+                    <div class="service-content">
+                        <h2>Cash to Master </h2>
+                        <p>Our CTM service ensures that vessels receive the necessary cash funds promptly and safely,
+                            helping the Master handle operational expenses such as crew wages, port fees, and other
+                            urgent needs. We coordinate closely with vessel agents, port authorities, and trusted
+                            financial partners to guarantee fast, discreet, and fully compliant transactions.</p>
+                        <p>Our experienced team manages the process end-to-end, ensuring the cash is delivered
+                            accurately, securely, and on time, reducing risks and allowing vessel operations to proceed
+                            smoothly without unnecessary delays.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us for CTM Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spare Parts Service Section -->
+        <section id="spare-parts" class="service-section">
+            <div class="container">
+                <div class="service-container">
+                    <div class="service-content">
+                        <h2>Spare Parts Services</h2>
+                        <p>Williams Shipping provides reliable sourcing and delivery of marine spare parts and equipment
+                            for vessels of all types. We understand that minimizing downtime is critical, which is why
+                            we offer fast and efficient spare parts solutions.</p>
+                        <p>Our extensive network of suppliers enables us to source high-quality parts at competitive
+                            prices. We handle all aspects of the process, from procurement and quality verification to
+                            customs clearance and delivery directly to your vessel, ensuring you receive the right parts
+                            when and where you need them.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Spare Parts Services</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/services/spare.jpg" alt="Spare Parts Services" loading="lazy"
+                            class="lazy-image" fetchpriority="low">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customs Clearance Service Section -->
+        <section id="customs-clearance" class="service-section">
+            <div class="container">
+                <div class="service-container">
+                    <div class="service-image">
+                        <img src="images/services/customs.jpg" alt="Customs Clearance Services" loading="lazy"
+                            class="lazy-image" fetchpriority="low">
+                    </div>
+                    <div class="service-content">
+                        <h2>Customs Clearance Services</h2>
+                        <p>Our customs clearance services ensure smooth and compliant import and export operations
+                            through Egyptian ports. Our specialists have in-depth knowledge of local regulations and
+                            procedures to expedite the clearance process while maintaining full compliance.</p>
+                        <p>We prepare and submit all required documentation, coordinate inspections, calculate and pay
+                            duties and taxes, and handle any regulatory issues that may arise. Our efficient approach
+                            minimizes delays and prevents costly penalties, allowing your cargo to move through customs
+                            with minimal disruption.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Customs Clearance
+                            Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chartering Service Section -->
+        <section id="chartering" class="service-section">
+            <div class="container">
+                <div class="service-container">
+                    <div class="service-content">
+                        <h2>Chartering Services</h2>
+                        <p>Williams Shipping offers professional chartering services for vessels and cargo
+                            transportation. We connect vessel owners with charterers and manage all aspects of the
+                            chartering process to ensure optimal vessel utilization and efficient cargo delivery.</p>
+                        <p>Our chartering specialists have extensive market knowledge and industry connections to secure
+                            the best terms for both vessel owners and charterers. We handle contract negotiations,
+                            documentation, operational coordination, and performance monitoring to ensure successful
+                            charter arrangements that meet all parties' requirements.</p>
+                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Chartering Services</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="images/services/chartering.jpg" alt="Chartering Services" loading="lazy"
+                            class="lazy-image" fetchpriority="low">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="services-cta">
+            <div class="container">
+                <h2>Ready to Experience Our Premium Shipping Services?</h2>
+                <p>Contact our team today to discuss how Williams Shipping can support your maritime operations with our
+                    comprehensive service solutions.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
+                    <a href="feedback.html" class="btn btn-primary">Share Feedback</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h2>Williams <span>Shipping</span></h2>
+                        <p>Your Trusted Shipping Partner</p>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Main menu</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="index.html#branches">Location</a></li>
+                            <li><a href="index.html#contact">Contact Us</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-services">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="#port-call">Port Call</a></li>
+                            <li><a href="#crew-change">Crew Change</a></li>
+                            <li><a href="#ctm">CTM</a></li>
+                            <li><a href="#spare-parts">Spare Parts</a></li>
+                            <li><a href="#customs-clearance">Customs Clearance</a></li>
+                            <li><a href="#chartering">Chartering</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h3>Connect With Us</h3>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="newsletter">
+                            <h3>Subscribe to Our Newsletter</h3>
+                            <form id="newsletterForm">
+                                <input type="email" placeholder="Your Email" required>
+                                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 Williams Shipping. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/script.js" defer></script>
+        <script>
+            // Lazy loading for images using Intersection Observer
+            document.addEventListener('DOMContentLoaded', function () {
+                // Mark when fonts are loaded
+                document.documentElement.classList.add('fonts-loaded');
+
+                // Lazy load images
+                const lazyImages = document.querySelectorAll('.lazy-image');
+
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver(function (entries, observer) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                img.classList.add('loaded');
+                                imageObserver.unobserve(img);
+                            }
+                        });
+                    });
+
+                    lazyImages.forEach(function (image) {
+                        imageObserver.observe(image);
+                    });
+                } else {
+                    // Fallback for browsers that don't support IntersectionObserver
+                    lazyImages.forEach(function (image) {
+                        image.classList.add('loaded');
+                    });
+                }
+
+                // Implementation for header scrolling effect
+                window.addEventListener('scroll', function () {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            });
+        </script>
+    </body>
+
 </html>
