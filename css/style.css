@@ -155,19 +155,22 @@ header .container {
 
 /* Home page specific header styles - only changing text color */
 .home-page header .logo h1,
+.home-page header .logo .site-logo,
 .home-page header nav ul li a,
 .home-page header .hamburger .bar {
     color: var(--light-text);
 }
 
 .home-page header.scrolled .logo h1,
+.home-page header.scrolled .logo .site-logo,
 .home-page header.scrolled nav ul li a,
 .home-page header.scrolled .hamburger .bar {
     color: var(--text-color);
 }
 
 /* Regular header styles for other pages */
-.logo h1 {
+.logo h1,
+.logo .site-logo {
     font-size: 24px;
     margin-bottom: 0;
     color: var(--text-color);
@@ -224,11 +227,12 @@ nav ul li a.active::after {
 
 /* Header scrolled state */
 header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: var(--light-text);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-header.scrolled .logo h1 {
+header.scrolled .logo h1,
+header.scrolled .logo .site-logo {
     color: var(--text-color);
 }
 
