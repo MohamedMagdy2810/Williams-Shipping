@@ -1,0 +1,10 @@
+# robots.txt for Williams Shipping
+
+User-agent: *
+Allow: /
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/
+
+# Sitemap
+Sitemap: https://williamsshipping.com/sitemap.xml 
