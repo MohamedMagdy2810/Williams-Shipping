@@ -75,7 +75,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: radial-gradient(ellipse at center, rgba(0,86,179,0.4) 0%, rgba(0,0,0,0) 70%);
+                background: radial-gradient(ellipse at center, rgba(0, 86, 179, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
                 pointer-events: none;
             }
 
@@ -100,7 +100,7 @@
                 transform: translateX(-50%);
                 width: 80px;
                 height: 4px;
-                background: linear-gradient(90deg, #fff, rgba(255,255,255,0.5));
+                background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5));
                 border-radius: 2px;
             }
 
@@ -356,7 +356,7 @@
                 position: relative;
                 display: inline-block;
             }
-            
+
             .rating-stars label::before {
                 content: '';
                 position: absolute;
@@ -372,14 +372,14 @@
             }
 
             .rating-stars label:hover,
-            .rating-stars label:hover ~ label,
-            .rating-stars input:checked ~ label {
+            .rating-stars label:hover~label,
+            .rating-stars input:checked~label {
                 color: var(--accent-color);
                 transform: scale(1.2);
             }
-            
+
             .rating-stars label:hover::before,
-            .rating-stars input:checked ~ label::before {
+            .rating-stars input:checked~label::before {
                 background-color: rgba(255, 152, 0, 0.1);
                 transform: scale(1.2);
             }
@@ -401,6 +401,7 @@
                     box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
                     transform: scale(0.98);
                 }
+
                 to {
                     box-shadow: 0 15px 40px rgba(40, 167, 69, 0.3);
                     transform: scale(1);
@@ -433,7 +434,7 @@
                 left: -100%;
                 width: 100%;
                 height: 100%;
-                background: linear-gradient(90deg, rgba(255,255,255,0.2), transparent);
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
                 transition: all 0.6s ease;
                 z-index: -1;
             }
@@ -462,7 +463,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: 
+                background:
                     radial-gradient(circle at 20% 30%, rgba(255, 152, 0, 0.15) 0%, rgba(0, 0, 0, 0) 30%),
                     radial-gradient(circle at 80% 70%, rgba(0, 86, 179, 0.2) 0%, rgba(0, 0, 0, 0) 40%);
             }
@@ -486,7 +487,7 @@
                 transform: translateX(-50%);
                 width: 60px;
                 height: 3px;
-                background: linear-gradient(90deg, rgba(255,255,255,0.5), #fff, rgba(255,255,255,0.5));
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), #fff, rgba(255, 255, 255, 0.5));
             }
 
             .feedback-cta p {
@@ -548,6 +549,7 @@
                     opacity: 0;
                     transform: translateX(-30px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateX(0);
@@ -559,6 +561,7 @@
                     opacity: 0;
                     transform: translateX(30px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateX(0);
@@ -570,6 +573,7 @@
                     opacity: 0;
                     transform: translateY(-30px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateY(0);
@@ -581,6 +585,7 @@
                     opacity: 0;
                     transform: translateY(30px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateY(0);
@@ -592,6 +597,7 @@
                     opacity: 0;
                     transform: scale(0.95);
                 }
+
                 to {
                     opacity: 1;
                     transform: scale(1);
@@ -680,9 +686,17 @@
             }
 
             @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.3); }
-                100% { transform: scale(1); }
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.3);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
             }
 
             .hover-effect {
@@ -695,9 +709,17 @@
             }
 
             @keyframes selectedPulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.4); }
-                100% { transform: scale(1); }
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.4);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
             }
 
             .form-group.focused {
@@ -717,7 +739,7 @@
                 .feedback-hero-content p {
                     font-size: 1rem;
                 }
-                
+
                 .feedback-form-container {
                     padding: 40px 30px;
                 }
@@ -745,11 +767,11 @@
                 .feedback-cta h2 {
                     font-size: 2.2rem;
                 }
-                
+
                 .feedback-cta {
                     padding: 70px 0;
                 }
-                
+
                 .rating-stars label {
                     font-size: 30px;
                 }
@@ -759,31 +781,31 @@
                 .feedback-hero-content h1 {
                     font-size: 2rem;
                 }
-                
+
                 .feedback-hero-content p {
                     font-size: 0.9rem;
                     margin-bottom: 30px;
                 }
-                
+
                 .feedback-hero {
                     padding: 120px 0 80px;
                 }
-                
+
                 .btn-secondary {
                     padding: 12px 30px;
                     font-size: 0.9rem;
                 }
-                
+
                 .form-group label {
                     font-size: 0.9rem;
                 }
-                
+
                 .form-group input,
                 .form-group textarea {
                     padding: 14px 16px;
                     font-size: 0.9rem;
                 }
-                
+
                 .rating-stars label {
                     font-size: 26px;
                 }
@@ -792,10 +814,10 @@
             /* Visual separator */
             .visual-separator {
                 height: 6px;
-                background: linear-gradient(90deg, 
-                    var(--primary-color), 
-                    var(--accent-color), 
-                    var(--primary-color));
+                background: linear-gradient(90deg,
+                        var(--primary-color),
+                        var(--accent-color),
+                        var(--primary-color));
                 margin-bottom: -1px;
                 position: relative;
                 z-index: 10;
@@ -1015,7 +1037,8 @@
         <section class="feedback-cta">
             <div class="container">
                 <h2 data-animation="fadeInUp" data-delay="0.2s">Your Feedback Shapes Our Future</h2>
-                <p data-animation="fadeInUp" data-delay="0.4s">Thank you for taking the time to share your experience with Williams Shipping. Your insights help us
+                <p data-animation="fadeInUp" data-delay="0.4s">Thank you for taking the time to share your experience
+                    with Williams Shipping. Your insights help us
                     deliver better service to all our customers.</p>
                 <div class="cta-buttons" data-animation="fadeInUp" data-delay="0.6s">
                     <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
@@ -1029,7 +1052,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <img src="images/logo22.png" alt="Williams Shipping Logo" class="footer-logo-img" loading="lazy">
+                        <img src="images/logo22.png" alt="Williams Shipping Logo" class="footer-logo-img"
+                            loading="lazy">
                         <h2>Williams <span>Shipping</span></h2>
                         <p>Your Trusted Shipping Partner</p>
                     </div>

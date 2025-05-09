@@ -342,21 +342,38 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 padding: 0;
+                gap: 10px;
             }
 
             .services-nav ul li {
                 margin: 0;
                 padding: 0;
+                flex: 1;
+                min-width: 160px;
+                max-width: 200px;
             }
 
             .services-nav ul li a {
-                display: block;
-                padding: 20px 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 15px;
+                height: 100px;
                 font-weight: 600;
                 color: #333;
                 position: relative;
                 transition: all 0.3s ease;
                 text-align: center;
+                white-space: nowrap;
+            }
+
+            .services-nav ul li a i {
+                display: block;
+                font-size: 24px;
+                margin-bottom: 8px;
+                color: var(--primary-color);
+                transition: all 0.3s ease;
             }
 
             .services-nav ul li a:hover {
@@ -364,11 +381,23 @@
                 background-color: var(--primary-color);
             }
 
+            .services-nav ul li a:hover i {
+                color: #fff;
+            }
+
             .services-nav ul li a.active {
                 color: var(--primary-color);
             }
 
+            .services-nav ul li a.active i {
+                color: var(--primary-color);
+            }
+
             .services-nav ul li a.active:hover {
+                color: #fff;
+            }
+
+            .services-nav ul li a.active:hover i {
                 color: #fff;
             }
 
@@ -627,9 +656,24 @@
             }
 
             @media (max-width: 768px) {
+                .services-nav ul {
+                    gap: 5px;
+                }
+
+                .services-nav ul li {
+                    min-width: 120px;
+                    max-width: 150px;
+                }
+
                 .services-nav ul li a {
-                    padding: 15px;
+                    padding: 15px 10px;
+                    height: 90px;
                     font-size: 14px;
+                }
+
+                .services-nav ul li a i {
+                    font-size: 20px;
+                    margin-bottom: 5px;
                 }
 
                 .service-detail-text h2 {
@@ -822,12 +866,13 @@
             <div class="container">
                 <div class="services-nav">
                     <ul>
-                        <li><a href="#port-call" class="active">Port Call</a></li>
-                        <li><a href="#crew-change">Crew Change</a></li>
-                        <li><a href="#ctm">CTM</a></li>
-                        <li><a href="#spare-parts">Spare Parts</a></li>
-                        <li><a href="#customs-clearance">Customs Clearance</a></li>
-                        <li><a href="#chartering">Chartering</a></li>
+                        <li><a href="#port-call" class="active"><i class="fas fa-anchor"></i> Port Call</a></li>
+                        <li><a href="#crew-change"><i class="fas fa-users"></i> Crew Change</a></li>
+                        <li><a href="#ctm"><i class="fas fa-money-bill-wave"></i> CTM</a></li>
+                        <li><a href="#spare-parts"><i class="fas fa-tools"></i> Spare Parts</a></li>
+                        <li><a href="#customs-clearance"><i class="fas fa-clipboard-check"></i> Customs Clearance</a>
+                        </li>
+                        <li><a href="#chartering"><i class="fas fa-ship"></i> Chartering</a></li>
                     </ul>
                 </div>
             </div>
@@ -991,7 +1036,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <img src="images/logo22.png" alt="Williams Shipping Logo" class="footer-logo-img" loading="lazy">
+                        <img src="images/logo22.png" alt="Williams Shipping Logo" class="footer-logo-img"
+                            loading="lazy">
                         <h2>Williams <span>Shipping</span></h2>
                         <p>Your Trusted Shipping Partner</p>
                     </div>
