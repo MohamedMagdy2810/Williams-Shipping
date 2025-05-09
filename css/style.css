@@ -850,6 +850,7 @@ header.scrolled .bar {
     flex: 0 0 calc(40% - 20px);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
     gap: 20px;
 }
 
@@ -860,6 +861,11 @@ header.scrolled .bar {
     text-align: center;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 200px;
+    overflow: hidden;
 }
 
 .contact-item:hover {
@@ -911,11 +917,57 @@ header.scrolled .bar {
     outline: none;
 }
 
+.contact-details {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-person {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.contact-person h4 {
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-person p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.contact-item .contact-details p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.contact-item i {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
 /* Footer */
 footer {
-    background-color: var(--dark-bg);
-    color: var(--light-text);
+    background-color: #f0f0f0;
+    color: #00396b;
     padding: 70px 0 0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
 }
 
 .footer-content {
@@ -931,18 +983,24 @@ footer {
 }
 
 .footer-logo-img {
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 15px;
+    max-width: 200px !important;
+    width: 200px !important;
+    height: auto !important;
+    margin-bottom: 20px;
     display: block;
 }
 
 .footer-logo h2 {
     font-size: 24px;
+    color: #00396b;
 }
 
 .footer-logo span {
     color: var(--accent-color);
+}
+
+.footer-logo p {
+    color: #00396b;
 }
 
 .footer-links,
@@ -959,6 +1017,8 @@ footer {
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
+    color: #00396b;
+    font-weight: 600;
 }
 
 .footer-content h3::after {
@@ -976,12 +1036,13 @@ footer {
 }
 
 .footer-content ul li a {
-    color: #ccc;
+    color: #00396b;
     transition: var(--transition);
+    font-size: 15px;
 }
 
 .footer-content ul li a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
     padding-left: 5px;
 }
 
@@ -996,15 +1057,16 @@ footer {
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--light-text);
+    background-color: rgba(0, 86, 179, 0.1);
+    color: var(--primary-color);
     border-radius: 50%;
     margin-right: 10px;
     transition: var(--transition);
 }
 
 .social-icons a:hover {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
+    color: white;
     transform: translateY(-3px);
 }
 
@@ -1019,14 +1081,15 @@ footer {
 
 .newsletter input {
     flex: 1;
-    border: none;
+    border: 1px solid #eee;
     padding: 12px 15px;
     border-radius: 30px 0 0 30px;
     font-size: 16px;
+    background-color: #fff;
 }
 
 .newsletter button {
-    background-color: var(--accent-color);
+    background-color: var(--primary-color);
     color: var(--light-text);
     border: none;
     padding: 0 20px;
@@ -1036,13 +1099,25 @@ footer {
 }
 
 .newsletter button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     text-align: center;
+    color: #00396b;
+}
+
+.visual-separator {
+    height: 6px;
+    background: linear-gradient(90deg, 
+        var(--primary-color), 
+        var(--accent-color), 
+        var(--primary-color));
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 10;
 }
 
 /* Animations */
@@ -1227,6 +1302,9 @@ footer {
 
 /* Make footer logo maintain aspect ratio */
 .footer-logo-img {
-    max-width: 120px;
-    height: auto;
+    max-width: 200px !important;
+    width: 200px !important;
+    height: auto !important;
+    margin-bottom: 20px;
+    display: block;
 } 
