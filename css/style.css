@@ -159,14 +159,14 @@ header .container {
 .home-page header .logo .site-logo,
 .home-page header nav ul li a,
 .home-page header .hamburger .bar {
-    color: var(--light-text);
+    color: white;
 }
 
 .home-page header.scrolled .logo h1,
 .home-page header.scrolled .logo .site-logo,
 .home-page header.scrolled nav ul li a,
 .home-page header.scrolled .hamburger .bar {
-    color: var(--text-color);
+    color: black;
 }
 
 /* Regular header styles for other pages */
@@ -174,7 +174,7 @@ header .container {
 .logo .site-logo {
     font-size: 24px;
     margin-bottom: 0;
-    color: var(--text-color);
+    color: white;
 }
 
 .logo span {
@@ -190,7 +190,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--text-color);
+    color: white;
     font-weight: 600;
     position: relative;
     padding: 5px 0;
@@ -222,7 +222,7 @@ nav ul li a.active::after {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    background-color: var(--text-color);
+    background-color: white;
     transition: var(--transition);
 }
 
@@ -234,7 +234,7 @@ header.scrolled {
 
 header.scrolled .logo h1,
 header.scrolled .logo .site-logo {
-    color: var(--text-color);
+    color: black;
 }
 
 header.scrolled .logo span {
@@ -242,7 +242,7 @@ header.scrolled .logo span {
 }
 
 header.scrolled nav ul li a {
-    color: var(--text-color);
+    color: black;
 }
 
 header.scrolled nav ul li a::after {
@@ -250,7 +250,7 @@ header.scrolled nav ul li a::after {
 }
 
 header.scrolled .bar {
-    background-color: var(--text-color);
+    background-color: black;
 }
 
 /* Hero Section */
