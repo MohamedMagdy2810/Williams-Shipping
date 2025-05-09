@@ -153,27 +153,178 @@
 
             /* Services Page Specific Styles */
             .services-hero {
-                background: linear-gradient(rgba(0, 56, 107, 0.85), rgba(0, 56, 107, 0.85)), url('images/services-bg.jpg');
+                background: linear-gradient(135deg, rgba(0, 56, 107, 0.95), rgba(0, 32, 84, 0.95)), url('images/services-bg.jpg');
                 background-size: cover;
                 background-position: center;
                 color: #fff;
-                padding: 120px 0 80px;
+                padding: 160px 0 120px;
                 text-align: center;
                 position: relative;
+                overflow: hidden;
+                min-height: 80vh;
+                display: flex;
+                align-items: center;
+            }
+
+            .hero-particles {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .services-hero-content {
+                position: relative;
+                z-index: 2;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .hero-subtitle {
+                display: inline-block;
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background: rgba(255, 255, 255, 0.1);
+                padding: 8px 16px;
+                border-radius: 25px;
+                margin-bottom: 20px;
+                animation: fadeInDown 0.8s ease;
             }
 
             .services-hero-content h1 {
-                font-size: 48px;
+                font-size: 56px;
+                font-weight: 700;
                 margin-bottom: 20px;
-                animation: fadeInDown 1s ease;
+                animation: fadeInUp 1s ease;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             }
 
             .services-hero-content p {
-                font-size: 20px;
-                max-width: 700px;
-                margin: 0 auto 30px;
-                animation: fadeInUp 1s ease 0.3s;
-                animation-fill-mode: both;
+                font-size: 22px;
+                line-height: 1.6;
+                margin-bottom: 40px;
+                animation: fadeIn 1.2s ease;
+            }
+
+            .hero-cta {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                animation: fadeInUp 1.4s ease;
+            }
+
+            .btn-outline {
+                background: transparent;
+                border: 2px solid #fff;
+                color: #fff;
+                padding: 12px 30px;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .btn-outline:hover {
+                background: #fff;
+                color: var(--primary-color);
+            }
+
+            .floating-shapes {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            .shape {
+                position: absolute;
+                animation: float 6s ease-in-out infinite;
+                opacity: 0.2;
+                font-size: 24px;
+            }
+
+            .shape-1 {
+                top: 20%;
+                left: 10%;
+                animation-delay: 0s;
+            }
+
+            .shape-2 {
+                top: 60%;
+                right: 10%;
+                animation-delay: 1s;
+            }
+
+            .shape-3 {
+                top: 30%;
+                right: 20%;
+                animation-delay: 2s;
+            }
+
+            .shape-4 {
+                top: 70%;
+                left: 20%;
+                animation-delay: 3s;
+            }
+
+            .hero-divider {
+                height: 1px;
+                background: rgba(255, 255, 255, 0.3);
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0px) rotate(0deg);
+                }
+
+                50% {
+                    transform: translateY(-20px) rotate(5deg);
+                }
+
+                100% {
+                    transform: translateY(0px) rotate(0deg);
+                }
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
             }
 
             .services-nav {
@@ -511,6 +662,29 @@
                 .service-image {
                     margin-bottom: 30px;
                 }
+
+                .services-hero {
+                    padding: 120px 0 80px;
+                    min-height: 70vh;
+                }
+
+                .services-hero-content h1 {
+                    font-size: 40px;
+                }
+
+                .services-hero-content p {
+                    font-size: 18px;
+                }
+
+                .hero-cta {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .btn {
+                    width: 100%;
+                    max-width: 250px;
+                }
             }
 
             header {
@@ -553,6 +727,39 @@
             header.scrolled nav ul li a.active {
                 color: var(--primary-color);
             }
+
+            /* Center hero content */
+            .services-hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* Hero wave styling */
+            .hero-wave {
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+            }
+
+            .hero-wave svg {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            /* Adjust spacing */
+            .services-hero {
+                padding-bottom: 120px;
+            }
+
+            /* Remove old divider */
+            .hero-divider {
+                display: none;
+            }
         </style>
     </head>
 
@@ -583,11 +790,30 @@
 
         <!-- Services Hero Section -->
         <section class="services-hero">
+            <div class="hero-particles" id="particles-js"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"><i class="fas fa-anchor"></i></div>
+                <div class="shape shape-2"><i class="fas fa-ship"></i></div>
+                <div class="shape shape-3"><i class="fas fa-container-storage"></i></div>
+                <div class="shape shape-4"><i class="fas fa-globe"></i></div>
+            </div>
             <div class="container">
                 <div class="services-hero-content">
+                    <span class="hero-subtitle">Excellence in Maritime Services</span>
                     <h1>Our Services</h1>
                     <p>Comprehensive Shipping Solutions for All Your Needs</p>
+                    <div class="hero-cta">
+                        <a href="#port-call" class="btn btn-primary">Explore Services</a>
+                        <a href="index.html#contact" class="btn btn-outline">Contact Us</a>
+                    </div>
                 </div>
+            </div>
+            <div class="hero-wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+                    <path fill="#ffffff" fill-opacity="1"
+                        d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,64C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z">
+                    </path>
+                </svg>
             </div>
         </section>
 
@@ -813,6 +1039,7 @@
         </footer>
 
         <script src="js/script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         <script>
             // Lazy loading for images using Intersection Observer
             document.addEventListener('DOMContentLoaded', function () {
@@ -852,6 +1079,54 @@
                         header.classList.remove('scrolled');
                     }
                 });
+            });
+
+            // Initialize particles.js
+            document.addEventListener('DOMContentLoaded', function () {
+                if (typeof particlesJS !== 'undefined') {
+                    particlesJS("particles-js", {
+                        particles: {
+                            number: { value: 80, density: { enable: true, value_area: 800 } },
+                            color: { value: "#ffffff" },
+                            shape: { type: "circle" },
+                            opacity: {
+                                value: 0.5,
+                                random: false,
+                                animation: { enable: true, speed: 1, minimumValue: 0.1, sync: false }
+                            },
+                            size: {
+                                value: 3,
+                                random: true,
+                                animation: { enable: true, speed: 2, minimumValue: 0.1, sync: false }
+                            },
+                            line_linked: {
+                                enable: true,
+                                distance: 150,
+                                color: "#ffffff",
+                                opacity: 0.4,
+                                width: 1
+                            },
+                            move: {
+                                enable: true,
+                                speed: 2,
+                                direction: "none",
+                                random: false,
+                                straight: false,
+                                outMode: "out",
+                                bounce: false,
+                            }
+                        },
+                        interactivity: {
+                            detectOn: "canvas",
+                            events: {
+                                onHover: { enable: true, mode: "repulse" },
+                                onClick: { enable: true, mode: "push" },
+                                resize: true
+                            }
+                        },
+                        retina_detect: true
+                    });
+                }
             });
         </script>
     </body>
