@@ -15,6 +15,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
             rel="stylesheet" media="print" onload="this.media='all'" fetchpriority="low">
+        <!-- AOS CSS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
         <!-- Preload critical above-the-fold styles -->
         <link rel="preload" href="css/style.css" as="style" fetchpriority="high">
         <!-- Schema.org markup for Google -->
@@ -121,6 +123,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
                 rel="stylesheet">
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         </noscript>
         <style>
             /* Critical font loading */
@@ -804,6 +807,279 @@
             .hero-divider {
                 display: none;
             }
+
+            /* Animation keyframes */
+            @keyframes fadeInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(50px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes fadeInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes slideInFromBottom {
+                from {
+                    opacity: 0;
+                    transform: translateY(100px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Service nav item hover effect */
+            .services-nav ul li a::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 3px;
+                background-color: var(--primary-color);
+                transition: all 0.3s ease;
+                transform: translateX(-50%);
+            }
+
+            .services-nav ul li a:hover::before {
+                width: 40px;
+            }
+
+            /* Image hover effects */
+            .service-image {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .service-image::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 56, 107, 0.2);
+                opacity: 0;
+                transition: all 0.4s ease;
+                z-index: 1;
+            }
+
+            .service-container:hover .service-image::before {
+                opacity: 1;
+            }
+
+            /* Custom animations for service sections */
+            .animated-service-content h2 {
+                position: relative;
+                display: inline-block;
+            }
+
+            .animated-service-content h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background-color: var(--primary-color);
+                transition: width 0.8s ease;
+            }
+
+            .service-container:hover .animated-service-content h2::after {
+                width: 100%;
+            }
+
+            /* Floating animation for shapes */
+            @keyframes floatUpDown {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            .floating-animation {
+                animation: floatUpDown 3s ease-in-out infinite;
+            }
+
+            /* Service nav active indicator animation */
+            .services-nav ul li a.active::after {
+                animation: pulse 1.5s infinite;
+            }
+
+            @keyframes pulse {
+                0% {
+                    opacity: 0.6;
+                    transform: translateX(-50%) scale(0.9);
+                }
+
+                50% {
+                    opacity: 1;
+                    transform: translateX(-50%) scale(1.1);
+                }
+
+                100% {
+                    opacity: 0.6;
+                    transform: translateX(-50%) scale(0.9);
+                }
+            }
+
+            /* Service content staggered animation */
+            .staggered-animation {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            .service-container:hover .staggered-animation {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .staggered-animation:nth-child(2) {
+                transition-delay: 0.1s;
+            }
+
+            .staggered-animation:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+
+            @media (max-width: 768px) {
+                .service-container {
+                    flex-direction: column;
+                    gap: 30px;
+                    margin-bottom: 40px;
+                }
+
+                .service-image,
+                .service-content {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    order: unset;
+                }
+
+                /* Force content first, image second for all sections */
+                .service-content {
+                    order: 1;
+                }
+
+                .service-image {
+                    order: 2;
+                    margin-top: 20px;
+                }
+
+                /* Ensure images are visible and properly sized */
+                .service-image img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    max-height: 300px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+
+                /* Adjust text alignment for better mobile reading */
+                .service-content {
+                    text-align: left;
+                    padding: 0 15px;
+                }
+
+                .service-content h2 {
+                    font-size: 28px;
+                    margin-bottom: 15px;
+                }
+
+                .service-content p {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    margin-bottom: 20px;
+                }
+
+                /* Adjust button width on mobile */
+                .service-content .btn {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                /* Add more spacing between sections */
+                .service-section {
+                    padding: 40px 0;
+                }
+
+                /* Ensure AOS animations work well on mobile */
+                [data-aos] {
+                    transform: none !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                }
+            }
+
+            /* Additional improvements for very small screens */
+            @media (max-width: 480px) {
+                .service-content h2 {
+                    font-size: 24px;
+                }
+
+                .service-content p {
+                    font-size: 15px;
+                }
+
+                .service-image {
+                    margin: 0 -15px;
+                    width: calc(100% + 30px);
+                }
+
+                .service-image img {
+                    border-radius: 0;
+                    max-height: 250px;
+                }
+            }
         </style>
     </head>
 
@@ -836,17 +1112,22 @@
         <section class="services-hero">
             <div class="hero-particles" id="particles-js"></div>
             <div class="floating-shapes">
-                <div class="shape shape-1"><i class="fas fa-anchor"></i></div>
-                <div class="shape shape-2"><i class="fas fa-ship"></i></div>
-                <div class="shape shape-3"><i class="fas fa-container-storage"></i></div>
-                <div class="shape shape-4"><i class="fas fa-globe"></i></div>
+                <div class="shape shape-1 floating-animation"><i class="fas fa-anchor"></i></div>
+                <div class="shape shape-2 floating-animation" style="animation-delay: 0.5s;"><i class="fas fa-ship"></i>
+                </div>
+                <div class="shape shape-3 floating-animation" style="animation-delay: 1s;"><i
+                        class="fas fa-container-storage"></i></div>
+                <div class="shape shape-4 floating-animation" style="animation-delay: 1.5s;"><i
+                        class="fas fa-globe"></i></div>
             </div>
             <div class="container">
                 <div class="services-hero-content">
-                    <span class="hero-subtitle">Excellence in Maritime Services</span>
-                    <h1>Our Services</h1>
-                    <p>Comprehensive Shipping Solutions for All Your Needs</p>
-                    <div class="hero-cta">
+                    <span class="hero-subtitle" data-aos="fade-down" data-aos-duration="800">Excellence in Maritime
+                        Services</span>
+                    <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Our Services</h1>
+                    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Comprehensive Shipping Solutions
+                        for All Your Needs</p>
+                    <div class="hero-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                         <a href="#port-call" class="btn btn-primary">Explore Services</a>
                         <a href="index.html#contact" class="btn btn-outline">Contact Us</a>
                     </div>
@@ -864,7 +1145,7 @@
         <!-- Services Overview Section -->
         <section class="services-overview">
             <div class="container">
-                <div class="services-nav">
+                <div class="services-nav" data-aos="fade-up" data-aos-duration="800" data-aos-offset="200">
                     <ul>
                         <li><a href="#port-call" class="active"><i class="fas fa-anchor"></i> Port Call</a></li>
                         <li><a href="#crew-change"><i class="fas fa-users"></i> Crew Change</a></li>
@@ -882,20 +1163,24 @@
         <section id="port-call" class="service-section">
             <div class="container">
                 <div class="service-container">
-                    <div class="service-image">
+                    <div class="service-image" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                         <img src="images/services/port-call.jpeg" alt="Port Call Services" loading="lazy"
                             class="lazy-image" fetchpriority="low" width="500" height="350">
                     </div>
-                    <div class="service-content">
+                    <div class="service-content animated-service-content" data-aos="fade-left" data-aos-duration="1000"
+                        data-aos-offset="300">
                         <h2>Port Call Services</h2>
-                        <p>Williams Shipping provides comprehensive port agency services for vessels calling at Egyptian
+                        <p class="staggered-animation">Williams Shipping provides comprehensive port agency services for
+                            vessels calling at Egyptian
                             ports. Our experienced team ensures smooth operations from arrival to departure, handling
                             all necessary documentation and coordination with port authorities.</p>
-                        <p>We manage all aspects of your vessel's port call, including customs clearance, immigration
+                        <p class="staggered-animation">We manage all aspects of your vessel's port call, including
+                            customs clearance, immigration
                             procedures, berth arrangements, and coordination with terminal operators. Our local
                             expertise and established relationships with port officials help minimize delays and
                             optimize your vessel's time in port.</p>
-                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Port Call Services</a>
+                        <a href="index.html#contact" class="btn btn-primary staggered-animation">Contact Us for Port
+                            Call Services</a>
                     </div>
                 </div>
             </div>
@@ -905,18 +1190,22 @@
         <section id="crew-change" class="service-section">
             <div class="container">
                 <div class="service-container">
-                    <div class="service-content">
+                    <div class="service-content animated-service-content" data-aos="fade-right" data-aos-duration="1000"
+                        data-aos-offset="300">
                         <h2>Crew Change Services</h2>
-                        <p>Our crew change services ensure smooth and efficient transitions for maritime personnel in
+                        <p class="staggered-animation">Our crew change services ensure smooth and efficient transitions
+                            for maritime personnel in
                             Egyptian ports. We handle all logistics, documentation, and transportation needs to minimize
                             vessel downtime and ensure crew comfort.</p>
-                        <p>From visa arrangements and immigration clearance to airport transfers and hotel
+                        <p class="staggered-animation">From visa arrangements and immigration clearance to airport
+                            transfers and hotel
                             accommodations, we manage every detail of your crew changes. Our 24/7 support team is always
                             available to address any issues that may arise, ensuring your crew transitions proceed
                             without complications.</p>
-                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Crew Change Services</a>
+                        <a href="index.html#contact" class="btn btn-primary staggered-animation">Contact Us for Crew
+                            Change Services</a>
                     </div>
-                    <div class="service-image">
+                    <div class="service-image" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                         <img src="images/services/crew-change.webp" alt="Crew Change Services" loading="lazy"
                             class="lazy-image" fetchpriority="low" width="500" height="350">
                     </div>
@@ -928,20 +1217,24 @@
         <section id="ctm" class="service-section">
             <div class="container">
                 <div class="service-container">
-                    <div class="service-image">
+                    <div class="service-image" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                         <img src="images/services/ctm.png" alt="Container Terminal Management" loading="lazy"
                             class="lazy-image" fetchpriority="low" width="500" height="350">
                     </div>
-                    <div class="service-content">
+                    <div class="service-content animated-service-content" data-aos="fade-left" data-aos-duration="1000"
+                        data-aos-offset="300">
                         <h2>Cash to Master </h2>
-                        <p>Our CTM service ensures that vessels receive the necessary cash funds promptly and safely,
+                        <p class="staggered-animation">Our CTM service ensures that vessels receive the necessary cash
+                            funds promptly and safely,
                             helping the Master handle operational expenses such as crew wages, port fees, and other
                             urgent needs. We coordinate closely with vessel agents, port authorities, and trusted
                             financial partners to guarantee fast, discreet, and fully compliant transactions.</p>
-                        <p>Our experienced team manages the process end-to-end, ensuring the cash is delivered
+                        <p class="staggered-animation">Our experienced team manages the process end-to-end, ensuring the
+                            cash is delivered
                             accurately, securely, and on time, reducing risks and allowing vessel operations to proceed
                             smoothly without unnecessary delays.</p>
-                        <a href="index.html#contact" class="btn btn-primary">Contact Us for CTM Services</a>
+                        <a href="index.html#contact" class="btn btn-primary staggered-animation">Contact Us for CTM
+                            Services</a>
                     </div>
                 </div>
             </div>
@@ -951,18 +1244,22 @@
         <section id="spare-parts" class="service-section">
             <div class="container">
                 <div class="service-container">
-                    <div class="service-content">
+                    <div class="service-content animated-service-content" data-aos="fade-right" data-aos-duration="1000"
+                        data-aos-offset="300">
                         <h2>Spare Parts Services</h2>
-                        <p>Williams Shipping provides reliable sourcing and delivery of marine spare parts and equipment
+                        <p class="staggered-animation">Williams Shipping provides reliable sourcing and delivery of
+                            marine spare parts and equipment
                             for vessels of all types. We understand that minimizing downtime is critical, which is why
                             we offer fast and efficient spare parts solutions.</p>
-                        <p>Our extensive network of suppliers enables us to source high-quality parts at competitive
+                        <p class="staggered-animation">Our extensive network of suppliers enables us to source
+                            high-quality parts at competitive
                             prices. We handle all aspects of the process, from procurement and quality verification to
                             customs clearance and delivery directly to your vessel, ensuring you receive the right parts
                             when and where you need them.</p>
-                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Spare Parts Services</a>
+                        <a href="index.html#contact" class="btn btn-primary staggered-animation">Contact Us for Spare
+                            Parts Services</a>
                     </div>
-                    <div class="service-image">
+                    <div class="service-image" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                         <img src="images/services/spare.jpg" alt="Spare Parts Services" loading="lazy"
                             class="lazy-image" fetchpriority="low" width="500" height="350">
                     </div>
@@ -974,20 +1271,24 @@
         <section id="customs-clearance" class="service-section">
             <div class="container">
                 <div class="service-container">
-                    <div class="service-image">
+                    <div class="service-image" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
                         <img src="images/services/customs.jpg" alt="Customs Clearance Services" loading="lazy"
                             class="lazy-image" fetchpriority="low" width="500" height="350">
                     </div>
-                    <div class="service-content">
+                    <div class="service-content animated-service-content" data-aos="fade-left" data-aos-duration="1000"
+                        data-aos-offset="300">
                         <h2>Customs Clearance Services</h2>
-                        <p>Our customs clearance services ensure smooth and compliant import and export operations
+                        <p class="staggered-animation">Our customs clearance services ensure smooth and compliant import
+                            and export operations
                             through Egyptian ports. Our specialists have in-depth knowledge of local regulations and
                             procedures to expedite the clearance process while maintaining full compliance.</p>
-                        <p>We prepare and submit all required documentation, coordinate inspections, calculate and pay
+                        <p class="staggered-animation">We prepare and submit all required documentation, coordinate
+                            inspections, calculate and pay
                             duties and taxes, and handle any regulatory issues that may arise. Our efficient approach
                             minimizes delays and prevents costly penalties, allowing your cargo to move through customs
                             with minimal disruption.</p>
-                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Customs Clearance
+                        <a href="index.html#contact" class="btn btn-primary staggered-animation">Contact Us for Customs
+                            Clearance
                             Services</a>
                     </div>
                 </div>
@@ -998,18 +1299,22 @@
         <section id="chartering" class="service-section">
             <div class="container">
                 <div class="service-container">
-                    <div class="service-content">
+                    <div class="service-content animated-service-content" data-aos="fade-right" data-aos-duration="1000"
+                        data-aos-offset="300">
                         <h2>Chartering Services</h2>
-                        <p>Williams Shipping offers professional chartering services for vessels and cargo
+                        <p class="staggered-animation">Williams Shipping offers professional chartering services for
+                            vessels and cargo
                             transportation. We connect vessel owners with charterers and manage all aspects of the
                             chartering process to ensure optimal vessel utilization and efficient cargo delivery.</p>
-                        <p>Our chartering specialists have extensive market knowledge and industry connections to secure
+                        <p class="staggered-animation">Our chartering specialists have extensive market knowledge and
+                            industry connections to secure
                             the best terms for both vessel owners and charterers. We handle contract negotiations,
                             documentation, operational coordination, and performance monitoring to ensure successful
                             charter arrangements that meet all parties' requirements.</p>
-                        <a href="index.html#contact" class="btn btn-primary">Contact Us for Chartering Services</a>
+                        <a href="index.html#contact" class="btn btn-primary staggered-animation">Contact Us for
+                            Chartering Services</a>
                     </div>
-                    <div class="service-image">
+                    <div class="service-image" data-aos="fade-left" data-aos-duration="1000" data-aos-offset="300">
                         <img src="images/services/chartering.jpg" alt="Chartering Services" loading="lazy"
                             class="lazy-image" fetchpriority="low" width="500" height="350">
                     </div>
@@ -1087,9 +1392,18 @@
         </footer>
         <script src="js/script.js" defer></script>
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
         <script>
             // Lazy loading for images using Intersection Observer
             document.addEventListener('DOMContentLoaded', function () {
+                // Initialize AOS
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: 'ease-in-out'
+                });
+
                 // Mark when fonts are loaded
                 document.documentElement.classList.add('fonts-loaded');
 
@@ -1125,6 +1439,33 @@
                     } else {
                         header.classList.remove('scrolled');
                     }
+                });
+
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+
+                            // Update active nav
+                            document.querySelectorAll('.services-nav a').forEach(navLink => {
+                                navLink.classList.remove('active');
+                            });
+                            document.querySelector(`.services-nav a[href="${targetId}"]`)?.classList.add('active');
+                        }
+                    });
                 });
             });
 
@@ -1174,6 +1515,62 @@
                         retina_detect: true
                     });
                 }
+            });
+
+            // Scroll-triggered animations for service sections
+            document.addEventListener('DOMContentLoaded', function () {
+                const serviceContainers = document.querySelectorAll('.service-container');
+
+                // Create intersection observer for service containers
+                const serviceObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+
+                            // Animate staggered elements
+                            const staggeredElements = entry.target.querySelectorAll('.staggered-animation');
+                            staggeredElements.forEach((el, index) => {
+                                setTimeout(() => {
+                                    el.style.opacity = '1';
+                                    el.style.transform = 'translateY(0)';
+                                }, 200 * index);
+                            });
+
+                            serviceObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                });
+
+                // Observe all service containers
+                serviceContainers.forEach(container => {
+                    serviceObserver.observe(container);
+                });
+
+                // Update active nav item on scroll
+                window.addEventListener('scroll', function () {
+                    const sections = document.querySelectorAll('.service-section');
+                    const navItems = document.querySelectorAll('.services-nav a');
+
+                    let currentSection = '';
+
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - 100;
+                        const sectionHeight = section.offsetHeight;
+
+                        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                            currentSection = section.getAttribute('id');
+                        }
+                    });
+
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === '#' + currentSection) {
+                            item.classList.add('active');
+                        }
+                    });
+                });
             });
         </script>
     </body>
