@@ -786,6 +786,35 @@
                 color: var(--accent-color);
             }
 
+            /* Navigation hover styles */
+            header nav ul li a {
+                color: white;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+
+            header nav ul li a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #7cc5ff;
+                /* Light blue for normal hover underline */
+                transition: width 0.3s ease;
+            }
+
+            header nav ul li a:hover {
+                color: #7cc5ff;
+                /* Light blue for normal hover color */
+            }
+
+            header nav ul li a:hover::after {
+                width: 100%;
+            }
+
+            /* Update scrolled header styles */
             header.scrolled {
                 background-color: #fff;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -796,14 +825,69 @@
                 color: var(--text-color);
             }
 
-            /* Make hamburger menu bars white */
-            .hamburger .bar {
-                background-color: #fff;
-                transition: var(--transition);
+            header.scrolled nav ul li a:hover {
+                color: #0056b3;
+                /* Deeper blue for scrolled hover */
             }
 
-            header.scrolled .hamburger .bar {
-                background-color: var(--text-color);
+            header.scrolled nav ul li a::after {
+                background: #0056b3;
+                /* Deeper blue for scrolled underline */
+            }
+
+            /* Mobile menu styles */
+            @media (max-width: 768px) {
+                header nav ul.active {
+                    background: rgba(0, 0, 0, 0.95);
+                    padding: 20px;
+                    border-radius: 0 0 10px 10px;
+                }
+
+                header.scrolled nav ul.active {
+                    background: white;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                header nav ul li a:hover {
+                    color: #7cc5ff;
+                    /* Light blue for normal hover */
+                    padding-left: 10px;
+                    transition: all 0.3s ease;
+                }
+
+                header.scrolled nav ul li a:hover {
+                    color: #0056b3;
+                    /* Deeper blue for scrolled hover */
+                }
+
+                /* Improved hamburger menu styles */
+                .hamburger {
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .hamburger .bar {
+                    height: 3px;
+                    margin: 5px 0;
+                    transition: all 0.3s ease;
+                    background-color: #fff;
+                }
+
+                header.scrolled .hamburger .bar {
+                    background-color: var(--text-color);
+                }
+
+                .hamburger.active .bar:nth-child(1) {
+                    transform: rotate(-45deg) translate(-5px, 6px);
+                }
+
+                .hamburger.active .bar:nth-child(2) {
+                    opacity: 0;
+                }
+
+                .hamburger.active .bar:nth-child(3) {
+                    transform: rotate(45deg) translate(-5px, -6px);
+                }
             }
 
             /* Additional styles for enhanced effects */
