@@ -150,9 +150,11 @@
                 0% {
                     transform: translateY(0px) rotate(0deg);
                 }
+
                 50% {
                     transform: translateY(-20px) rotate(5deg);
                 }
+
                 100% {
                     transform: translateY(0px) rotate(0deg);
                 }
@@ -177,7 +179,7 @@
                 margin-bottom: 20px;
                 animation: fadeInDown 0.8s ease;
             }
-            
+
             .feedback-hero-content h1 {
                 font-size: 56px;
                 font-weight: 700;
@@ -893,15 +895,19 @@
                 0% {
                     transform: translate(0, 0) rotate(0deg);
                 }
+
                 25% {
                     transform: translate(15px, -15px) rotate(5deg);
                 }
+
                 50% {
                     transform: translate(-10px, 10px) rotate(-5deg);
                 }
+
                 75% {
                     transform: translate(-15px, -5px) rotate(3deg);
                 }
+
                 100% {
                     transform: translate(0, 0) rotate(0deg);
                 }
@@ -1161,10 +1167,12 @@
                     transform: translate(0, 0);
                     opacity: 0.6;
                 }
+
                 50% {
                     transform: translate(50px, -30px);
                     opacity: 0.9;
                 }
+
                 100% {
                     transform: translate(0, 0);
                     opacity: 0.6;
@@ -1397,15 +1405,15 @@
             }
 
             .rating-stars label:hover,
-            .rating-stars label:hover ~ label,
-            .rating-stars input:checked ~ label {
+            .rating-stars label:hover~label,
+            .rating-stars input:checked~label {
                 color: var(--accent-color);
                 transform: scale(1.3);
                 text-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
             }
 
             .rating-stars label:hover::after,
-            .rating-stars input:checked ~ label::after {
+            .rating-stars input:checked~label::after {
                 width: 45px;
                 height: 45px;
             }
@@ -1493,6 +1501,7 @@
                     transform: scale(0) rotate(-180deg);
                     opacity: 0;
                 }
+
                 100% {
                     transform: scale(1) rotate(0deg);
                     opacity: 1;
@@ -1504,6 +1513,7 @@
                     box-shadow: 0 15px 30px rgba(40, 167, 69, 0.2);
                     transform: scale(0.98);
                 }
+
                 to {
                     box-shadow: 0 20px 40px rgba(40, 167, 69, 0.3);
                     transform: scale(1);
@@ -1515,11 +1525,13 @@
                 .feedback-info {
                     grid-template-columns: repeat(2, 1fr);
                 }
+
                 .feedback-item:nth-child(3) {
                     grid-column: span 2;
                     max-width: 500px;
                     margin: 0 auto;
                 }
+
                 .feedback-form-container {
                     padding: 40px 30px;
                 }
@@ -1530,17 +1542,21 @@
                     grid-template-columns: 1fr;
                     margin-top: -80px;
                 }
+
                 .feedback-item {
                     max-width: 500px;
                     margin: 0 auto;
                 }
+
                 .feedback-item:nth-child(3) {
                     grid-column: span 1;
                 }
+
                 .radio-group {
                     flex-direction: column;
                     gap: 10px;
                 }
+
                 .radio-option {
                     width: 100%;
                 }
@@ -1550,17 +1566,90 @@
                 .feedback-form-container {
                     padding: 30px 20px;
                 }
+
                 .section-header h2 {
                     font-size: 28px;
                 }
+
                 .section-header p {
                     font-size: 16px;
                 }
+
                 .form-group label {
                     font-size: 16px;
                 }
+
                 .feedback-item {
                     padding: 30px 25px;
+                }
+            }
+
+            /* CTA Section Styles */
+            .services-cta {
+                background: linear-gradient(rgba(0, 56, 107, 0.9), rgba(0, 56, 107, 0.9)), url('images/cta-bg.jpg');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                padding: 80px 0;
+                text-align: center;
+            }
+
+            .services-cta h2 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .services-cta p {
+                font-size: 18px;
+                max-width: 700px;
+                margin: 0 auto 30px;
+            }
+
+            .services-cta .cta-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .services-cta .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                width: auto;
+                max-width: none;
+            }
+
+            .services-cta .btn-primary {
+                width: auto;
+                max-width: none;
+                background: linear-gradient(135deg, var(--primary-color), #0046a3);
+                color: white;
+            }
+
+            .services-cta .btn-secondary {
+                width: auto;
+                max-width: none;
+                background-color: transparent;
+                border: 2px solid #fff;
+                color: #fff;
+            }
+
+            .services-cta .btn:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            @media (max-width: 768px) {
+                .services-cta .cta-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .services-cta .btn {
+                    width: 100%;
+                    max-width: 250px;
                 }
             }
         </style>
@@ -1606,7 +1695,8 @@
                 <div class="feedback-hero-content">
                     <span class="hero-subtitle">Your Opinion Matters</span>
                     <h1>Customer Feedback</h1>
-                    <p>Help us improve our services by sharing your experience with Williams Shipping. Your insights are valuable and drive our commitment to excellence.</p>
+                    <p>Help us improve our services by sharing your experience with Williams Shipping. Your insights are
+                        valuable and drive our commitment to excellence.</p>
                     <div class="hero-cta">
                         <a href="index.html#contact" class="btn btn-outline">Contact Us</a>
                     </div>
@@ -1794,21 +1884,20 @@
             </div>
         </section>
 
-        <!-- Feedback CTA Section -->
-        <section class="feedback-cta">
+        <!-- CTA Section -->
+        <section class="services-cta">
             <div class="container">
-                <h2 data-animation="fadeInUp" data-delay="0.2s">Your Feedback Shapes Our Future</h2>
-                <p data-animation="fadeInUp" data-delay="0.4s">Thank you for taking the time to share your experience
-                    with Williams Shipping. Your insights help us
-                    deliver better service to all our customers.</p>
-                <div class="cta-buttons" data-animation="fadeInUp" data-delay="0.6s">
+                <h2>Ready to Experience Our Premium Shipping Services?</h2>
+                <p>Contact our team today to discuss how Williams Shipping can support your maritime operations with our
+                    comprehensive service solutions.</p>
+                <div class="cta-buttons">
                     <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
+                    <a href="services.html" class="btn btn-primary">Explore Our Services</a>
                 </div>
             </div>
         </section>
 
-        <div class="visual-separator"></div>
-
+        <!-- Footer -->
         <footer>
             <div class="container">
                 <div class="footer-content">
@@ -1867,7 +1956,7 @@
         <script src="js/feedback.js"></script>
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 // Initialize particles
                 if (typeof particlesJS !== 'undefined') {
                     particlesJS('particles-js', {
@@ -1962,15 +2051,15 @@
                         retina_detect: true
                     });
                 }
-                
+
                 // Smooth scrolling for anchor links
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
+                    anchor.addEventListener('click', function (e) {
                         e.preventDefault();
-                        
+
                         const targetId = this.getAttribute('href');
                         if (targetId === '#') return;
-                        
+
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
                             window.scrollTo({

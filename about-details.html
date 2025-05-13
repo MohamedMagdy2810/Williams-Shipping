@@ -437,6 +437,75 @@
                     font-size: 1.8rem;
                 }
             }
+
+            /* CTA Section Styles */
+            .services-cta {
+                background: linear-gradient(rgba(0, 56, 107, 0.9), rgba(0, 56, 107, 0.9)), url('images/cta-bg.jpg');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                padding: 80px 0;
+                text-align: center;
+            }
+
+            .services-cta h2 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            .services-cta p {
+                font-size: 18px;
+                max-width: 700px;
+                margin: 0 auto 30px;
+            }
+
+            .services-cta .cta-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .services-cta .btn {
+                padding: 12px 30px;
+                font-size: 16px;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                width: auto;
+                max-width: none;
+            }
+
+            .services-cta .btn-primary {
+                width: auto;
+                max-width: none;
+                background: linear-gradient(135deg, var(--primary-color), #0046a3);
+                color: white;
+            }
+
+            .services-cta .btn-secondary {
+                width: auto;
+                max-width: none;
+                background-color: transparent;
+                border: 2px solid #fff;
+                color: #fff;
+            }
+
+            .services-cta .btn:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            @media (max-width: 768px) {
+                .services-cta .cta-buttons {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .services-cta .btn {
+                    width: 100%;
+                    max-width: 250px;
+                }
+            }
         </style>
     </head>
 
@@ -668,7 +737,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- CTA Section -->
         <section class="services-cta">
             <div class="container">
@@ -677,17 +746,18 @@
                     comprehensive service solutions.</p>
                 <div class="cta-buttons">
                     <a href="index.html#contact" class="btn btn-secondary">Contact Us</a>
-                    <a href="feedback.html" class="btn btn-primary">Share Feedback</a>
+                    <a href="services.html" class="btn btn-primary">Explore Our Services</a>
                 </div>
             </div>
         </section>
-        
+
         <!-- Footer -->
         <footer>
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-logo">
-                        <img src="images/logo22.png" alt="Williams Shipping Logo" class="footer-logo-img" loading="lazy">
+                        <img src="images/logo22.png" alt="Williams Shipping Logo" class="footer-logo-img"
+                            loading="lazy">
                         <h2>Williams <span>Shipping</span></h2>
                         <p>Your Trusted Shipping Partner</p>
                     </div>
