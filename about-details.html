@@ -60,44 +60,169 @@
         }
         </script>
         <style>
-            /* Modern About Details Page Styles */
+            /* Modern About Hero Section Styles */
             .about-hero {
-                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/about7.png');
+                background: linear-gradient(135deg, rgba(0, 56, 107, 0.95), rgba(0, 0, 0, 0.85)), url('images/about7.png');
                 background-size: cover;
                 background-position: center;
+                background-attachment: fixed;
                 color: white;
-                padding: 120px 0 80px;
+                padding: 160px 0 120px;
                 position: relative;
                 overflow: hidden;
             }
 
-            /* .about-hero::before {
-                content: '';
+            /* Wave Animation Styles */
+            .wave-container {
                 position: absolute;
-                bottom: -50px;
+                bottom: 0;
                 left: 0;
                 width: 100%;
+                overflow: hidden;
+                line-height: 0;
+                z-index: 2;
+            }
+
+            .waves {
+                position: relative;
+                width: 100%;
                 height: 100px;
-                background: white;
-                transform: skewY(-3deg);
-            } */
+                margin-bottom: -7px;
+            }
+
+            .parallax>use {
+                animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+            }
+
+            .parallax>use:nth-child(1) {
+                animation-delay: -2s;
+                animation-duration: 7s;
+            }
+
+            .parallax>use:nth-child(2) {
+                animation-delay: -3s;
+                animation-duration: 10s;
+            }
+
+            .parallax>use:nth-child(3) {
+                animation-delay: -4s;
+                animation-duration: 13s;
+            }
+
+            .parallax>use:nth-child(4) {
+                animation-delay: -5s;
+                animation-duration: 20s;
+            }
+
+            @keyframes move-forever {
+                0% {
+                    transform: translate3d(-90px, 0, 0);
+                }
+
+                100% {
+                    transform: translate3d(85px, 0, 0);
+                }
+            }
+
+            /* Remove the previous gradient overlay since we're using waves */
+            .about-hero::before {
+                display: none;
+            }
+
+            .about-hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+                z-index: 1;
+            }
 
             .about-hero-content {
                 text-align: center;
-                max-width: 800px;
+                max-width: 1000px;
                 margin: 0 auto;
+                position: relative;
+                z-index: 2;
             }
 
             .about-hero-content h1 {
-                font-size: 3.5rem;
-                margin-bottom: 20px;
+                font-size: 4rem;
+                margin-bottom: 30px;
                 font-weight: 700;
                 letter-spacing: 1px;
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 0.8s ease forwards;
+                background: linear-gradient(45deg, #fff, #e0e0e0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             }
 
             .about-hero-content p {
-                font-size: 1.2rem;
-                opacity: 0.9;
+                font-size: 1.4rem;
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 0.8s ease forwards 0.3s;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .scroll-indicator {
+                position: absolute;
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 3;
+                opacity: 0;
+                animation: fadeIn 0.8s ease forwards 1s;
+            }
+
+            .scroll-indicator .mouse {
+                width: 30px;
+                height: 50px;
+                border: 2px solid rgba(255, 255, 255, 0.8);
+                border-radius: 20px;
+                position: relative;
+            }
+
+            .scroll-indicator .mouse::before {
+                content: '';
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 4px;
+                height: 8px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 2px;
+                animation: scrollMouse 2s infinite;
+            }
+
+            @keyframes scrollMouse {
+                0% {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, 15px);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
             }
 
             .about-details {
@@ -421,8 +546,17 @@
             }
 
             @media (max-width: 768px) {
+                .about-hero {
+                    padding: 120px 0 80px;
+                }
+
                 .about-hero-content h1 {
-                    font-size: 2.5rem;
+                    font-size: 2.8rem;
+                }
+
+                .about-hero-content p {
+                    font-size: 1.2rem;
+                    padding: 0 20px;
                 }
 
                 .two-column {
@@ -435,6 +569,10 @@
 
                 .about-section h2 {
                     font-size: 1.8rem;
+                }
+
+                .waves {
+                    height: 40px;
                 }
             }
 
@@ -506,6 +644,129 @@
                     max-width: 250px;
                 }
             }
+
+            /* Navigation hover styles */
+            header nav ul li a {
+                color: white;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+
+            header nav ul li a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #7cc5ff;
+                transition: width 0.3s ease;
+            }
+
+            header nav ul li a:hover {
+                color: #7cc5ff;
+            }
+
+            header nav ul li a:hover::after {
+                width: 100%;
+            }
+
+            /* Update scrolled header styles */
+            header.scrolled nav ul li a {
+                color: var(--text-color);
+            }
+
+            header.scrolled nav ul li a:hover {
+                color: #7cc5ff;
+            }
+
+            /* Mobile menu styles */
+            @media (max-width: 768px) {
+                header nav ul.active {
+                    background: rgba(0, 0, 0, 0.95);
+                }
+
+                header.scrolled nav ul.active {
+                    background: white;
+                }
+
+                header nav ul li a:hover {
+                    color: #7cc5ff;
+                    padding-left: 10px;
+                }
+            }
+
+            /* Responsive wave adjustments */
+            @media (max-width: 768px) {
+                .waves {
+                    height: 40px;
+                }
+            }
+
+            .about-hero-particles {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: 1;
+            }
+
+            .particle {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                animation: floatParticle 15s infinite linear;
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes floatParticle {
+                0% {
+                    transform: translate(0, 0);
+                    opacity: 0;
+                }
+
+                50% {
+                    opacity: 0.8;
+                }
+
+                100% {
+                    transform: translate(100px, -100px);
+                    opacity: 0;
+                }
+            }
+
+            /* Removing scroll-indicator styles complete */
+            /* The scroll-indicator, mouse, and scrollMouse animation styles have been removed */
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .about-details {
+                padding: 100px 0;
+                background-color: #f9f9f9;
+            }
         </style>
     </head>
 
@@ -536,11 +797,29 @@
 
         <!-- Hero Section -->
         <section class="about-hero">
+            <div class="about-hero-overlay"></div>
+            <div class="about-hero-particles" id="particles"></div>
             <div class="container">
                 <div class="about-hero-content">
                     <h1>About Williams Shipping</h1>
                     <p>Your trusted shipping agency and logistics service provider in all Egyptian ports</p>
                 </div>
+            </div>
+            <!-- Add wave animation -->
+            <div class="wave-container">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+                </svg>
             </div>
         </section>
 
@@ -847,6 +1126,37 @@
 
             // Check header on scroll
             window.addEventListener('scroll', handleHeaderScroll);
+
+            // Add this after your existing script
+            // Create floating particles
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const numberOfParticles = 20;
+
+                for (let i = 0; i < numberOfParticles; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+
+                    // Random starting position
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+
+                    // Random size
+                    const size = Math.random() * 4 + 2;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+
+                    // Random animation duration and delay
+                    const duration = Math.random() * 10 + 5;
+                    const delay = Math.random() * 5;
+                    particle.style.animation = `floatParticle ${duration}s ${delay}s infinite linear`;
+
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // Initialize particles on page load
+            document.addEventListener('DOMContentLoaded', createParticles);
         </script>
     </body>
 
