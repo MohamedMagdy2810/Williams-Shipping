@@ -732,6 +732,26 @@
                     width: 100%;
                     max-width: 250px;
                 }
+
+                /* Mobile menu styles */
+                header nav ul.active {
+                    background: rgba(0, 0, 0, 0.95);
+                }
+
+                header.scrolled nav ul.active {
+                    background: white;
+                }
+
+                header nav ul li a:hover {
+                    color: #7cc5ff;
+                    /* Light blue for normal hover */
+                    padding-left: 10px;
+                }
+
+                header.scrolled nav ul li a:hover {
+                    color: #0056b3;
+                    /* Deeper blue for scrolled hover */
+                }
             }
 
             header {
@@ -1079,6 +1099,49 @@
                     border-radius: 0;
                     max-height: 250px;
                 }
+            }
+
+            /* Navigation hover styles */
+            header nav ul li a {
+                color: white;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+
+            header nav ul li a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #7cc5ff;
+                /* Light blue for normal hover underline */
+                transition: width 0.3s ease;
+            }
+
+            header nav ul li a:hover {
+                color: #7cc5ff;
+                /* Light blue for normal hover color */
+            }
+
+            header nav ul li a:hover::after {
+                width: 100%;
+            }
+
+            /* Update scrolled header styles */
+            header.scrolled nav ul li a {
+                color: var(--text-color);
+            }
+
+            header.scrolled nav ul li a:hover {
+                color: #0056b3;
+                /* Deeper blue for scrolled hover */
+            }
+
+            header.scrolled nav ul li a::after {
+                background: #0056b3;
+                /* Deeper blue for scrolled underline */
             }
         </style>
     </head>
