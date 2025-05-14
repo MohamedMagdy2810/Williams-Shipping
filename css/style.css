@@ -1232,6 +1232,14 @@ footer {
         margin-top: 35px;
     }
     
+    .mission-vision-text, .mission-vision-image {
+        flex: 0 0 100%;
+    }
+    
+    .mission-vision-image {
+        margin-top: 35px;
+    }
+    
     .branches-map, .branches-list {
         flex: 0 0 100%;
     }
