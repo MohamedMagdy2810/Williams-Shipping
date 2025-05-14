@@ -255,7 +255,7 @@ header.scrolled .bar {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/bg.webp');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -1279,7 +1279,7 @@ footer {
         position: fixed;
         top: 70px;
         left: -100%;
-        background-color: white;
+        background-color: white !important;
         width: 100%;
         height: calc(100vh - 70px);
         flex-direction: column;
@@ -1290,10 +1290,19 @@ footer {
     
     nav ul.active {
         left: 0;
+        background-color: white !important;
     }
     
     nav ul li {
         margin: 15px 0;
+    }
+
+    nav ul li a {
+        color: var(--text-color) !important;
+    }
+
+    nav ul li a:hover {
+        color: var(--primary-color) !important;
     }
     
     .hamburger {
@@ -1353,6 +1362,40 @@ footer {
     
     .cta-content h2 {
         font-size: 2.5rem;
+    }
+
+    header nav ul.active {
+        background: white;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    header nav ul.active li a {
+        color: var(--text-color);
+    }
+
+    header nav ul.active li a:hover {
+        color: var(--primary-color);
+    }
+
+    /* Improved hamburger menu styles */
+    .hamburger {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    /* Override for mobile menu on home page */
+    .home-page nav ul.active {
+        background-color: white !important;
+    }
+    
+    .home-page nav ul.active li a {
+        color: var(--text-color) !important;
+    }
+    
+    .home-page nav ul.active li a:hover {
+        color: var(--primary-color) !important;
     }
 }
 
